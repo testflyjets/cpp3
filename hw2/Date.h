@@ -15,6 +15,10 @@
 
 namespace ChrisMcCann
 {
+   // month and year offsets
+   const int MONTH_OFFSET = 1;
+   const int YEAR_OFFSET = 1990;
+
    // define min and max month values
    const int JANUARY  =  1;
    const int DECEMBER = 12;
@@ -39,11 +43,11 @@ namespace ChrisMcCann
       void setDay(int day);
       void setYear(int year);
 
-      bool validateMonth(int month);
-      bool validateDay(int month, int day, int year);
-      bool validateYear(int year);
+      bool validateMonth(int month) const;
+      bool validateDay(int month, int day, int year) const;
+      bool validateYear(int year) const;
 
-      int daysInMonth(int month, int year);
+      int daysInMonth(int month, int year) const;
 
       int month, day, year;
    };

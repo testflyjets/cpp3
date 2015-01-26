@@ -17,6 +17,11 @@
   <ItemGroup>
     <ClInclude Include="Date.h" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ext\unittest++\UnitTest++.vcxproj">
+      <Project>{64a4fefe-0461-4e95-8cc1-91ef5f57dbc6}</Project>
+    </ProjectReference>
+  </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{14C452D6-6FC9-470E-AEEC-83801B068DE2}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
@@ -62,7 +67,7 @@
       <Optimization>Disabled</Optimization>
       <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;_LIB;_CRT_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <SDLCheck>true</SDLCheck>
-      <DisableLanguageExtensions>true</DisableLanguageExtensions>
+      <DisableLanguageExtensions>false</DisableLanguageExtensions>
       <AdditionalOptions>/wd4001 %(AdditionalOptions)</AdditionalOptions>
       <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>

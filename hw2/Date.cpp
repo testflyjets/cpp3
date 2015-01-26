@@ -18,9 +18,6 @@ using std::cerr;
 
 #include "Date.h"
 
-const int MONTH_OFFSET = 1;
-const int YEAR_OFFSET = 1990;
-
 /*
  * Default constructor, sets month, day and year
  * to the current values.
@@ -80,7 +77,7 @@ ChrisMcCann::Date::display() const
 }
 
 bool 
-ChrisMcCann::Date::validateMonth(int month)
+ChrisMcCann::Date::validateMonth(int month) const
 {
    if (month < JANUARY || month > DECEMBER)
    {
@@ -99,12 +96,12 @@ ChrisMcCann::Date::validateMonth(int month)
 bool 
 ChrisMcCann::Date::validateDay(int month, 
                                int day, 
-                               int year)
+                               int year) const
 {
    int monthDays = daysInMonth(month, year);
    if (day < 1 || day > monthDays)
    {
-      cerr << "Invalid day of month [" << day << "] given. "
+      cerr << "Invalid day of month [" << day << "] given."
          << " Days in " << month << "/" << year 
          << " must be between 1 and " << monthDays << ".\n";
       return false;
@@ -119,7 +116,7 @@ ChrisMcCann::Date::validateDay(int month,
  */
 int 
 ChrisMcCann::Date::daysInMonth(int month, 
-                               int year)
+                               int year) const
 {
    int numberOfDays;
 
@@ -140,7 +137,7 @@ ChrisMcCann::Date::daysInMonth(int month,
 }
 
 bool 
-ChrisMcCann::Date::validateYear(int year)
+ChrisMcCann::Date::validateYear(int year) const
 {
    if (year < 0)
    {
