@@ -15,17 +15,17 @@
 
 namespace ChrisMcCann
 {
-   // month and year offsets
-   const int MONTH_OFFSET = 1;
-   const int YEAR_OFFSET = 1990;
-
-   // define min and max month values
-   const int JANUARY  =  1;
-   const int DECEMBER = 12;
-
    class Date
    {
    public:
+      // month and year offsets
+      static const int MONTH_OFFSET = 1;
+      static const int YEAR_OFFSET = 1990;
+
+      // define min and max month values
+      static const int JANUARY  =  1;
+      static const int DECEMBER = 12;
+
       // Constructors
       Date();
       Date(int month, int day, int year);

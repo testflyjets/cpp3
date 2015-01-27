@@ -8,7 +8,6 @@
  * 
  * A class that represents a calendar date, specified
  * by a numerical day, month, and year.
- *
  */
 
 #include <ctime>
@@ -42,7 +41,9 @@ ChrisMcCann::Date::Date(int month,
                         int year)
 {
    // validate the input values
-   if (validateDay(month, day, year) && validateMonth(month) && validateYear(year))
+   if (validateDay(month, day, year) && 
+      validateMonth(month) && 
+      validateYear(year))
    {
       setMonth(month);
       setDay(day);
@@ -141,7 +142,8 @@ ChrisMcCann::Date::validateYear(int year) const
 {
    if (year < 0)
    {
-      cerr << "Invalid year [" << year << "] given, must be greater than zero.\n";
+      cerr << "Invalid year [" << year << "] given, "
+         << "must be greater than zero.\n";
       return false;
    }
    else

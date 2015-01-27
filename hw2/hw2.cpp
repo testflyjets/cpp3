@@ -2,7 +2,7 @@
  * testflyjets@gmail.com
  * C/C++ Programming32, Section ID 105730, Ray Mitchell III
  * January 11, 2015
- * Main.cpp
+ * hw2.cpp
  * Windows 8.1 Enterprise 64-bit
  * Microsoft Visual Studio 2013 Express for Desktop
  * 
@@ -21,8 +21,6 @@ using UnitTest::MemoryOutStream;
 
 #include "Date.h"
 using ChrisMcCann::Date;
-using ChrisMcCann::MONTH_OFFSET;
-using ChrisMcCann::YEAR_OFFSET;
 
 static int day_;
 static int month_;
@@ -38,9 +36,9 @@ void currentDate()
    struct tm *now = localtime(&tm);
 
    // set static date values
-   month_ = now->tm_mon + MONTH_OFFSET;
+   month_ = now->tm_mon + ChrisMcCann::Date::MONTH_OFFSET;
    day_   = now->tm_mday;
-   year_  = now->tm_year + YEAR_OFFSET;
+   year_  = now->tm_year + ChrisMcCann::Date::YEAR_OFFSET;
 }
 
 /*

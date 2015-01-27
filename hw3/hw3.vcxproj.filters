@@ -15,15 +15,15 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Date.cpp">
+    <ClCompile Include="SavingsAccount.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="hw2.cpp">
+    <ClCompile Include="hw3.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Date.h">
+    <ClInclude Include="SavingsAccount.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
