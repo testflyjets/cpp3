@@ -19,7 +19,8 @@ using std::cin;
 using UnitTest::MemoryOutStream;
 
 #include "SavingsAccount.h"
-using ChrisMcCann::SavingsAccount;
+namespace cm = ChrisMcCann;
+using cm::SavingsAccount;
 
 // the allowable difference between double values
 // when checking equality in unit tests
@@ -80,6 +81,64 @@ TEST(DefaultContstructorInvalidInitialBalance)
    SavingsAccount invalidBalanceAccount(invalidBalance);
 
    CHECK_EQUAL(buffer.str(), errorMessage.str());
+}
+
+TEST(SetValidAnnualInterestRate)
+{
+   // create a buffer to redirect cerr so we can capture it
+   std::stringstream buffer;
+   struct cerrRedirect redirect(buffer.rdbuf());
+
+   double annualInterestRate(0.05);
+   cm::SavingsAccount::setAnnualInterestRate(annualInterestRate);
+
+   CHECK_EQUAL(buffer.str(), "");
+}
+
+TEST(SetInvalidAnnualInterestRate)
+{
+   double invalidInterestRate(-0.05);
+
+   // build a display string for current date
+   std::ostringstream errorMessage;
+   errorMessage << "Invalid annual interest rate ["
+      << invalidInterestRate 
+      << "] given -- setting interest rate to 0.0\n";
+
+   // create a buffer to redirect cerr so we can capture it
+   std::stringstream buffer;
+   struct cerrRedirect redirect(buffer.rdbuf());
+
+   cm::SavingsAccount::setAnnualInterestRate(invalidInterestRate);
+
+   CHECK_EQUAL(buffer.str(), errorMessage.str());
+}
+
+TEST(ApplyMonthlyInterestRateZero)
+{
+   double initialBalance(100.0);
+   SavingsAccount account(initialBalance);
+
+   // default annual interest rate is zero, so we
+   // shouldn't see any change in the savings balance
+   account.applyMonthlyInterest();
+
+   CHECK_CLOSE(initialBalance, account.getSavingsBalance(), TEST_TOLERANCE);
+}
+
+TEST(ApplyMonthlyInterestRateNonZero)
+{
+   double initialBalance(100.0);
+   SavingsAccount account(initialBalance);
+
+   double interestRate(0.12);
+   cm::SavingsAccount::setAnnualInterestRate(interestRate);
+   account.applyMonthlyInterest();
+
+   // 12% annual interest = 1% monthly, 1% of $100 is $1.00
+   double expectedBalance = 101.0;
+
+   CHECK_CLOSE(expectedBalance, account.getSavingsBalance(), TEST_TOLERANCE);
 }
 
 int main() {

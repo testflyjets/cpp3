@@ -17,8 +17,6 @@ using std::cerr;
 
 double ChrisMcCann::SavingsAccount::annualInterestRate;
 
-const int ChrisMcCann::SavingsAccount::MONTHS_IN_YEAR = 12;
-
 /*
  * Initializes a SavingsAccount object with an initial balance.
  * If the initial balance is less than 0 an error message is displayed
@@ -44,7 +42,7 @@ ChrisMcCann::SavingsAccount::SavingsAccount(double initialBalance)
 double 
 ChrisMcCann::SavingsAccount::getSavingsBalance() const
 {
-   return this->savingsBalance;
+   return savingsBalance;
 }
 
 /*
@@ -67,8 +65,10 @@ ChrisMcCann::SavingsAccount::setAnnualInterestRate(double newInterestRate)
 {
    if (newInterestRate < 0.0)
    {
-      cerr << "Invalid annual interest rate [" << newInterestRate
+      cerr << "Invalid annual interest rate [" 
+         << newInterestRate
          << "] given -- setting interest rate to 0.0\n";
+
       ChrisMcCann::SavingsAccount::annualInterestRate = 0.0;
    }
    else

@@ -26,9 +26,9 @@ namespace ChrisMcCann
       static void setAnnualInterestRate(double newInterestRate);
 
    private:
+      static const int MONTHS_IN_YEAR = 12;
       double savingsBalance;
       static double annualInterestRate;
-      static const int MONTHS_IN_YEAR;
    };
 }
 
