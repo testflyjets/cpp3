@@ -6,7 +6,7 @@
  * Windows 8.1 Enterprise 64-bit
  * Microsoft Visual Studio 2013 Express for Desktop
  * 
- * The header for a Savings Account class
+ * Defines the interface for a Savings Account class
  *
  */
 
@@ -24,11 +24,11 @@ namespace ChrisMcCann
       void applyMonthlyInterest();
 
       static void setAnnualInterestRate(double newInterestRate);
-      static const int MONTHS_IN_YEAR = 12;
 
    private:
       double savingsBalance;
       static double annualInterestRate;
+      static const int MONTHS_IN_YEAR;
    };
 }
 
