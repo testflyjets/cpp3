@@ -43,7 +43,7 @@ int main()
 
     // Run tests
     Project1UnitTest::TestCoin();
-    //Project1UnitTest::TestProduct();
+    Project1UnitTest::TestProduct();
     //Project1UnitTest::TestDeliveryChute();
     //Project1UnitTest::TestProductRack();
     //Project1UnitTest::TestProductButton();
