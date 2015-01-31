@@ -16,7 +16,9 @@ Project1::DeliveryChute::DeliveryChute(StatusPanel &statusPanel)
 
 Project1::DeliveryChute::~DeliveryChute()
 {
- 
+   // clean up a product left in the chute
+   if (pProduct != NULL)
+      delete pProduct;
 }
 
 bool

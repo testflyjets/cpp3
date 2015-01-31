@@ -33,10 +33,17 @@ Project1::VendingMachine::VendingMachine(
 
 Project1::VendingMachine::~VendingMachine()
 {
+   // release memory for product racks and buttons
    for (int rack = 0; rack < NUM_PRODUCT_RACKS; ++rack)
    {
       delete productRacks[rack];
       delete productButtons[rack];
+   }
+
+   // release the coins in the coinbox
+   for (int coin = 0; coin < numCoins; ++coin)
+   {
+      delete coinBox[coin];
    }
 }
 

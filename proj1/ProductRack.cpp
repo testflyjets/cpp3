@@ -26,7 +26,11 @@ Project1::ProductRack::ProductRack(
 
 Project1::ProductRack::~ProductRack()
 {
-
+   // clean up memory for any products still in the rack
+   for (int product = 0; product < productCount; ++product)
+   {
+      delete products[product];
+   }
 }
 
 bool
