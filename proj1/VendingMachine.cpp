@@ -33,7 +33,11 @@ Project1::VendingMachine::VendingMachine(
 
 Project1::VendingMachine::~VendingMachine()
 {
-    // TODO: Implement
+   for (int rack = 0; rack < NUM_PRODUCT_RACKS; ++rack)
+   {
+      delete productRacks[rack];
+      delete productButtons[rack];
+   }
 }
 
 bool

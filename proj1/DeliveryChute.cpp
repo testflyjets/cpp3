@@ -16,7 +16,7 @@ Project1::DeliveryChute::DeliveryChute(StatusPanel &statusPanel)
 
 Project1::DeliveryChute::~DeliveryChute()
 {
-    // TODO: Implement
+ 
 }
 
 bool

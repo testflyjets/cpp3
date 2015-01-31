@@ -26,7 +26,7 @@ Project1::ProductRack::ProductRack(
 
 Project1::ProductRack::~ProductRack()
 {
-    // TODO: Implement
+
 }
 
 bool
