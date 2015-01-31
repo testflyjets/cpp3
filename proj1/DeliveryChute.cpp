@@ -11,7 +11,7 @@ Project1::DeliveryChute::DeliveryChute(StatusPanel &statusPanel)
     : statusPanel(statusPanel),
       pProduct(0)
 {
-    // TODO: Implement
+   
 }
 
 Project1::DeliveryChute::~DeliveryChute()
@@ -22,20 +22,34 @@ Project1::DeliveryChute::~DeliveryChute()
 bool
 Project1::DeliveryChute::insertProduct(Product *pProduct)
 {
-    // TODO: Implement
-    return false;
+   if (!containsProduct())
+   {
+      this->pProduct = pProduct;
+      return true;
+   }
+   else
+   {
+      statusPanel.displayMessage(StatusPanel::MESSAGECODE_CHUTE_FULL);
+      return false;
+   }
 }
 
 Project1::Product *
 Project1::DeliveryChute::retrieveProduct()
 {
-    // TODO: Implement
-    return 0;
+   if (containsProduct())
+   {
+      Product *retrievedProduct = pProduct;
+
+      this->pProduct = NULL;
+      return retrievedProduct;
+   }
+   else
+      return 0;
 }
 
 bool
 Project1::DeliveryChute::containsProduct() const
 {
-    // TODO: Implement
-    return false;
+    return (this->pProduct != NULL);
 }

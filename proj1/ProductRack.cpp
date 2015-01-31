@@ -20,7 +20,8 @@ Project1::ProductRack::ProductRack(
         productCount(0),
         productPriceCents(productPriceCents)
 {
-    // TODO: Implement
+   // load the name of the product allowed to be in this rack
+   strcpy(this->allowedProductName, allowedProductName);
 }
 
 Project1::ProductRack::~ProductRack()
@@ -31,48 +32,84 @@ Project1::ProductRack::~ProductRack()
 bool
 Project1::ProductRack::isCompatibleProduct(const char *productName) const
 {
-    // TODO: Implement
-    return false;
+   return (strcmp(allowedProductName, productName) == 0);
 }
 
 bool
 Project1::ProductRack::isFull() const
 {
-    // TODO: Implement
-    return false;
+   return (this->productCount == MAX_PRODUCTS);
 }
 
 bool
 Project1::ProductRack::isEmpty() const
 {
-    // TODO: Implement
-    return false;
+   return (this->productCount == 0);
 }
 
 bool
 Project1::ProductRack::addProduct(Product* pProduct)
 {
-    // TODO: Implement
-    return false;
+   if (isFull())
+   {
+      statusPanel.displayMessage(StatusPanel::MESSAGECODE_RACK_IS_FULL);
+      return false;
+   }
+   else if (!isCompatibleProduct(pProduct->getName()))
+   {
+      statusPanel.displayMessage(StatusPanel::MESSAGECODE_PRODUCT_DOES_NOT_MATCH_PRODUCT_RACK);
+      return false;
+   } 
+   else
+   {
+      products[productCount++] = pProduct;
+      return true;
+   }
 }
 
 bool
 Project1::ProductRack::deliverProduct()
 {
-   // TODO: Implement
-    return false;
+   // if the rack is empty display error and fail
+   if (isEmpty())
+   {
+      statusPanel.displayMessage(StatusPanel::MESSAGECODE_SOLD_OUT);
+      return false;
+   }
+
+   // check if the delivery chute is full
+   if (deliveryChute.retrieveProduct() != NULL)
+   {
+      // chute full, display error message and fail
+      statusPanel.displayMessage(StatusPanel::MESSAGECODE_CHUTE_FULL);
+      return false;
+   }
+
+   // get the next product in the rack
+   Product *nextProduct = products[productCount - 1];
+
+   // insert it into the delivery chute
+   if (deliveryChute.insertProduct(nextProduct))
+   {
+      // remove the product from the rack and
+      // decrement the product count
+      products[--productCount] = NULL;
+      return true;
+   }
+   else
+   {
+      return false;
+   }
 }
 
 unsigned
 Project1::ProductRack::getNumProductsInRack() const
 {
-    // TODO: Implement
-    return 0;
+   return productCount;
 }
 
 unsigned
 Project1::ProductRack::getProductPriceCents() const
 {
-    // TODO: Implement
-    return 0;
+   return productPriceCents;
 }

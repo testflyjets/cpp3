@@ -13,19 +13,17 @@ using std::strcpy;
 Project1::ProductButton::ProductButton(ProductRack &productRack)
     : productRack(productRack)
 {
-    // TODO: Implement
+
 }
 
 bool
 Project1::ProductButton::press()
 {
-    // TODO: Implement
-    return false;
+   return (this->productRack.deliverProduct());
 }
 
 unsigned
 Project1::ProductButton::getProductPriceCents() const
 {
-    // TODO: Implement
-    return 0;
+   return this->productRack.getProductPriceCents();
 }
