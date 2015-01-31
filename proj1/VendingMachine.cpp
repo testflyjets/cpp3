@@ -105,8 +105,6 @@ Project1::VendingMachine::retrieveProduct()
 bool
 Project1::VendingMachine::addProduct(Product *pProduct)
 {
-   ProductRack **vpRack;
-
    // loop through the product racks looking for one 
    // compatible with pProduct
    for (int rack = 0; rack < NUM_PRODUCT_RACKS; ++rack)
