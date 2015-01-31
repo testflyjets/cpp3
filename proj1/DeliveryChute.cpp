@@ -24,6 +24,7 @@ Project1::DeliveryChute::~DeliveryChute()
 bool
 Project1::DeliveryChute::insertProduct(Product *pProduct)
 {
+   // If there isn't a product in the chute already, add it
    if (!containsProduct())
    {
       this->pProduct = pProduct;
@@ -31,6 +32,7 @@ Project1::DeliveryChute::insertProduct(Product *pProduct)
    }
    else
    {
+      // otherwise show an error message
       statusPanel.displayMessage(StatusPanel::MESSAGECODE_CHUTE_FULL);
       return false;
    }
@@ -39,6 +41,7 @@ Project1::DeliveryChute::insertProduct(Product *pProduct)
 Project1::Product *
 Project1::DeliveryChute::retrieveProduct()
 {
+   // if the chute contains a product, retrieve it
    if (containsProduct())
    {
       Product *retrievedProduct = pProduct;

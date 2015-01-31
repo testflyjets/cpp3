@@ -40,7 +40,7 @@ Project1::VendingMachine::~VendingMachine()
       delete productButtons[rack];
    }
 
-   // release the coins in the coinbox
+   // release memory for the coins in the coinbox
    for (int coin = 0; coin < numCoins; ++coin)
    {
       delete coinBox[coin];
