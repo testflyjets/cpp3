@@ -27,7 +27,7 @@ Project1::ProductRack::ProductRack(
 Project1::ProductRack::~ProductRack()
 {
    // clean up memory for any products still in the rack
-   for (int product = 0; product < productCount; ++product)
+   for (unsigned product = 0; product < productCount; ++product)
    {
       delete products[product];
    }
@@ -36,19 +36,19 @@ Project1::ProductRack::~ProductRack()
 bool
 Project1::ProductRack::isCompatibleProduct(const char *productName) const
 {
-   return (strcmp(allowedProductName, productName) == 0);
+   return strcmp(allowedProductName, productName) == 0;
 }
 
 bool
 Project1::ProductRack::isFull() const
 {
-   return (this->productCount == MAX_PRODUCTS);
+   return productCount == MAX_PRODUCTS;
 }
 
 bool
 Project1::ProductRack::isEmpty() const
 {
-   return (this->productCount == 0);
+   return productCount == 0;
 }
 
 bool
@@ -82,7 +82,7 @@ Project1::ProductRack::deliverProduct()
    }
 
    // check if the delivery chute is full
-   if (deliveryChute.retrieveProduct() != NULL)
+   if (deliveryChute.retrieveProduct() != 0)
    {
       // chute full, display error message and fail
       statusPanel.displayMessage(StatusPanel::MESSAGECODE_CHUTE_FULL);
@@ -97,7 +97,7 @@ Project1::ProductRack::deliverProduct()
    {
       // remove the product from the rack and
       // decrement the product count
-      products[--productCount] = NULL;
+      products[--productCount] = 0;
       return true;
    }
    else

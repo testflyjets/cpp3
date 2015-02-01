@@ -56,5 +56,5 @@ Project1::DeliveryChute::retrieveProduct()
 bool
 Project1::DeliveryChute::containsProduct() const
 {
-    return (this->pProduct != NULL);
+    return this->pProduct != 0;
 }

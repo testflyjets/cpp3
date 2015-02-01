@@ -22,11 +22,9 @@ Project1::VendingMachine::VendingMachine(
          productNames[rack], 
          deliveryChute, 
          productPrices[rack]);
-
       productRacks[rack] = productRack;
 
       ProductButton *productButton = new ProductButton(*productRack);
-
       productButtons[rack] = productButton;
    }
 }
@@ -41,7 +39,7 @@ Project1::VendingMachine::~VendingMachine()
    }
 
    // release memory for the coins in the coinbox
-   for (int coin = 0; coin < numCoins; ++coin)
+   for (unsigned coin = 0; coin < numCoins; ++coin)
    {
       delete coinBox[coin];
    }
@@ -106,7 +104,7 @@ Project1::VendingMachine::pressButton(int button)
 Project1::Product *
 Project1::VendingMachine::retrieveProduct()
 {
-   return (deliveryChute.retrieveProduct());
+   return deliveryChute.retrieveProduct();
 }
 
 bool
@@ -137,7 +135,7 @@ Project1::VendingMachine::getProductCount(const char *productName) const
       if (productRacks[rack]->isCompatibleProduct(productName))
       {
          // return the product count from the rack
-         return (productRacks[rack]->getNumProductsInRack());
+         return productRacks[rack]->getNumProductsInRack();
       }
    }
     
@@ -153,9 +151,9 @@ Project1::VendingMachine::countTill() const
 
    // loop through all the coins in the coinbox,
    // totalling their values
-   for (vpCoin = coinBox; vpCoin < coinBox + MAX_COINS;)
+   for (vpCoin = coinBox; vpCoin < coinBox + numCoins;)
    {
-      if (*vpCoin == NULL)
+      if (*vpCoin == 0)
       {
          break;
       }
