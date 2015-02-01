@@ -12,14 +12,28 @@
 #include <iostream>
 using std::cout;
 using std::cerr;
+using std::ostream;
 
 #include "Complex.h"
+
+using ChrisMcCann::Complex;
 
 ChrisMcCann::Complex::Complex(
    double real, 
    double imaginary) 
-   : real(0.0), 
-      imaginary(0.0)
+   : real(real), 
+     imaginary(imaginary)
 {
 
 }
+
+namespace ChrisMcCann
+{
+   ostream &operator<<(ostream &out, const Complex &value)
+   {
+      out << value.real;
+
+      return out;
+   }
+}
+

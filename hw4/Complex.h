@@ -13,12 +13,25 @@
 #ifndef CHRIS_MCCANN_COMPLEX_H
 #define CHRIS_MCCANN_COMPLEX_H
 
+#include <iostream>
+using std::istream;
+using std::ostream;
+
 namespace ChrisMcCann
 {
    class Complex
    {
+      friend istream &operator>>(istream &in, Complex &value);
+      friend ostream &operator<<(ostream &out, const Complex &value);
+
    public:
-      Complex(double real, double imaginary);
+      Complex(double real = 0.0, double imaginary = 0.0);
+
+      Complex operator+(const Complex &other) const;
+      Complex operator-(const Complex &other) const;
+
+      bool operator==(const Complex &other) const;
+      bool operator!=(const Complex &other) const;
 
    private:
       double real;

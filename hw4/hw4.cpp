@@ -20,6 +20,12 @@ using std::cin;
 namespace cm = ChrisMcCann;
 using cm::Complex;
 
+TEST(DefaultConstructor)
+{
+   Complex complex;
+   cout << complex << "\n";
+}
+
 int main() {
    return UnitTest::RunAllTests();
 }
