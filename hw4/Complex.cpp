@@ -27,13 +27,34 @@ ChrisMcCann::Complex::Complex(
 
 }
 
-namespace ChrisMcCann
+ostream &ChrisMcCann::operator<<(ostream &out, const Complex &value)
 {
-   ostream &operator<<(ostream &out, const Complex &value)
-   {
-      out << value.real;
+   out << value.real;
+   if (value.imaginary >= 0)
+      out << "+";
+   out << value.imaginary;
+   out << "i";
 
-      return out;
+   return out;
+}
+
+istream &ChrisMcCann::operator>>(istream &in, Complex &value)
+{
+   double real;
+   char iSign;
+   double imaginary;
+
+   in >> real;
+   in >> iSign;
+   in >> imaginary;
+
+   value.real = real;
+   value.imaginary = imaginary;
+   if (iSign == '-')
+   {
+      value.imaginary = -value.imaginary;
    }
+
+   return in;
 }
 
