@@ -178,6 +178,139 @@ TEST(InputComplexNegativeImaginary)
    CHECK_CLOSE(imaginary, complex.getImaginary(), DOUBLE_TOLERANCE);
 }
 
+TEST(AddDefaultComplexValues)
+{
+   // test values for constructing a complex
+   double real = 0;
+   double imaginary = 0;
+
+   Complex complex1;
+   Complex complex2;
+
+   Complex complexSum = complex1 + complex2;
+
+   CHECK_CLOSE(real, complexSum.getReal(), DOUBLE_TOLERANCE);
+   CHECK_CLOSE(imaginary, complexSum.getImaginary(), DOUBLE_TOLERANCE);
+}
+
+TEST(AddCustomComplexValuesPositives)
+{
+   // test values for constructing a complex
+   double real1 = 1;
+   double imaginary1 = 2;
+   Complex complex1(real1, imaginary1);
+
+   double real2 = 2;
+   double imaginary2 = 3;
+   Complex complex2(real2, imaginary2);
+
+   Complex complexSum = complex1 + complex2;
+
+   CHECK_CLOSE(real1 + real2, complexSum.getReal(), DOUBLE_TOLERANCE);
+   CHECK_CLOSE(imaginary1 + imaginary2, complexSum.getImaginary(), DOUBLE_TOLERANCE);
+}
+
+TEST(AddCustomComplexValuesNegatives)
+{
+   // test values for constructing a complex
+   double real1 = -1;
+   double imaginary1 = 2;
+   Complex complex1(real1, imaginary1);
+
+   double real2 = 2;
+   double imaginary2 = -3;
+   Complex complex2(real2, imaginary2);
+
+   Complex complexSum = complex1 + complex2;
+
+   CHECK_CLOSE(real1 + real2, complexSum.getReal(), DOUBLE_TOLERANCE);
+   CHECK_CLOSE(imaginary1 + imaginary2, complexSum.getImaginary(), DOUBLE_TOLERANCE);
+}
+
+TEST(AddCustomComplexValuesZeroSums)
+{
+   // test values for constructing a complex
+   double real1 = -1;
+   double imaginary1 = 3;
+   Complex complex1(real1, imaginary1);
+
+   double real2 = 1;
+   double imaginary2 = -3;
+   Complex complex2(real2, imaginary2);
+
+   Complex complexSum = complex1 + complex2;
+
+   CHECK_CLOSE(real1 + real2, complexSum.getReal(), DOUBLE_TOLERANCE);
+   CHECK_CLOSE(imaginary1 + imaginary2, complexSum.getImaginary(), DOUBLE_TOLERANCE);
+}
+
+
+TEST(SubtractDefaultComplexValues)
+{
+   // test values for constructing a complex
+   double real = 0;
+   double imaginary = 0;
+
+   Complex complex1;
+   Complex complex2;
+
+   Complex complexDiff = complex1 - complex2;
+
+   CHECK_CLOSE(real, complexDiff.getReal(), DOUBLE_TOLERANCE);
+   CHECK_CLOSE(imaginary, complexDiff.getImaginary(), DOUBLE_TOLERANCE);
+}
+
+TEST(SubtractCustomComplexValuesPositives)
+{
+   // test values for constructing a complex
+   double real1 = 1;
+   double imaginary1 = 2;
+   Complex complex1(real1, imaginary1);
+
+   double real2 = 2;
+   double imaginary2 = 3;
+   Complex complex2(real2, imaginary2);
+
+   Complex complexDiff = complex1 - complex2;
+
+   CHECK_CLOSE(real1 - real2, complexDiff.getReal(), DOUBLE_TOLERANCE);
+   CHECK_CLOSE(imaginary1 - imaginary2, complexDiff.getImaginary(), DOUBLE_TOLERANCE);
+}
+
+TEST(SubtractCustomComplexValuesNegatives)
+{
+   // test values for constructing a complex
+   double real1 = -1;
+   double imaginary1 = 2;
+   Complex complex1(real1, imaginary1);
+
+   double real2 = 2;
+   double imaginary2 = -3;
+   Complex complex2(real2, imaginary2);
+
+   Complex complexDiff = complex1 - complex2;
+
+   CHECK_CLOSE(real1 - real2, complexDiff.getReal(), DOUBLE_TOLERANCE);
+   CHECK_CLOSE(imaginary1 - imaginary2, complexDiff.getImaginary(), DOUBLE_TOLERANCE);
+}
+
+TEST(SubtractCustomComplexValuesZeroSums)
+{
+   // test values for constructing a complex
+   double real1 = -1;
+   double imaginary1 = 3;
+   Complex complex1(real1, imaginary1);
+
+   double real2 = 1;
+   double imaginary2 = -3;
+   Complex complex2(real2, imaginary2);
+
+   Complex complexDiff = complex1 - complex2;
+
+   CHECK_CLOSE(real1 - real2, complexDiff.getReal(), DOUBLE_TOLERANCE);
+   CHECK_CLOSE(imaginary1 - imaginary2, complexDiff.getImaginary(), DOUBLE_TOLERANCE);
+}
+
 int main() {
    return UnitTest::RunAllTests();
 }
