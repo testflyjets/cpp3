@@ -33,6 +33,9 @@ namespace ChrisMcCann
       bool operator==(const Complex &other) const;
       bool operator!=(const Complex &other) const;
 
+      double getReal() const;
+      double getImaginary() const;
+
    private:
       double real;
       double imaginary;

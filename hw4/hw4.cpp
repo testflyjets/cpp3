@@ -20,6 +20,8 @@ using std::cin;
 namespace cm = ChrisMcCann;
 using cm::Complex;
 
+const double DOUBLE_TOLERANCE = 0.0001;
+
 /*
  * A test fixture that redirects std::cout for test purposes
  */
@@ -36,18 +38,12 @@ private:
    std::streambuf *old;
 };
 
-TEST(DefaultConstructor)
-{
-   Complex complex;
-   
-}
-
 TEST(ConstructorWithParams)
 {
    Complex complex(3, -4);
 }
 
-TEST(OutputComplex)
+TEST(DefaultConstructor)
 {
    // the expected output
    std::ostringstream output;
@@ -60,39 +56,126 @@ TEST(OutputComplex)
    Complex complex;
    cout << complex;
 
+   CHECK_CLOSE(0, complex.getReal(), DOUBLE_TOLERANCE);
+   CHECK_CLOSE(0, complex.getImaginary(), DOUBLE_TOLERANCE);
+   CHECK_EQUAL(buffer.str(), output.str());
+}
+
+TEST(CustomConstructor)
+{
+   // test values for constructing a complex
+   double real = 2;
+   double imaginary = 3;
+
+   // the expected output
+   std::ostringstream output;
+   output << real << "+" << imaginary << "i";
+
+   // create a buffer to redirect cerr so we can capture it
+   std::stringstream buffer;
+   struct coutRedirect redirect(buffer.rdbuf());
+
+   Complex complex(real, imaginary);
+   cout << complex;
+
+   CHECK_CLOSE(real, complex.getReal(), DOUBLE_TOLERANCE);
+   CHECK_CLOSE(imaginary, complex.getImaginary(), DOUBLE_TOLERANCE);
    CHECK_EQUAL(buffer.str(), output.str());
 }
 
 TEST(OutputComplexNegativeReal)
 {
+    // test values for constructing a complex
+   double real = -2;
+   double imaginary = 3;
+
    // the expected output
    std::ostringstream output;
-   output << "-2+3i";
+   output << real << "+" << imaginary << "i";
 
    // create a buffer to redirect cerr so we can capture it
    std::stringstream buffer;
    struct coutRedirect redirect(buffer.rdbuf());
 
-   Complex complex(-2, 3);
+   Complex complex(real, imaginary);
    cout << complex;
 
+   CHECK_CLOSE(real, complex.getReal(), DOUBLE_TOLERANCE);
+   CHECK_CLOSE(imaginary, complex.getImaginary(), DOUBLE_TOLERANCE);
    CHECK_EQUAL(buffer.str(), output.str());
 }
 
 TEST(OutputComplexNegativeImaginary)
 {
+   // test values for constructing a complex
+   double real = 1;
+   double imaginary = -5;
+
    // the expected output
    std::ostringstream output;
-   output << "1-5i";
+   output << real << imaginary << "i";
 
    // create a buffer to redirect cerr so we can capture it
    std::stringstream buffer;
    struct coutRedirect redirect(buffer.rdbuf());
 
-   Complex complex(1, -5);
+   Complex complex(real, imaginary);
    cout << complex;
 
+   CHECK_CLOSE(real, complex.getReal(), DOUBLE_TOLERANCE);
+   CHECK_CLOSE(imaginary, complex.getImaginary(), DOUBLE_TOLERANCE);
    CHECK_EQUAL(buffer.str(), output.str());
+}
+
+TEST(InputDefaultComplex)
+{
+   // test values for constructing a complex
+   double real = 0;
+   double imaginary = 0;
+
+   // create a stream we can use to simulate cin
+   std::stringstream buffer;
+   buffer << real << "+" << imaginary << "i";
+
+   Complex complex;
+   buffer >> complex;
+
+   CHECK_CLOSE(real, complex.getReal(), DOUBLE_TOLERANCE);
+   CHECK_CLOSE(imaginary, complex.getImaginary(), DOUBLE_TOLERANCE);
+}
+
+TEST(InputComplexNegativeReal)
+{
+   // test values for constructing a complex
+   double real = -2;
+   double imaginary = 5;
+
+   // create a stream we can use to simulate cin
+   std::stringstream buffer;
+   buffer << real << "+" << imaginary << "i";
+
+   Complex complex;
+   buffer >> complex;
+
+   CHECK_CLOSE(real, complex.getReal(), DOUBLE_TOLERANCE);
+   CHECK_CLOSE(imaginary, complex.getImaginary(), DOUBLE_TOLERANCE);
+}
+
+TEST(InputComplexNegativeImaginary)
+{
+   // test values for constructing a complex
+   double real = 3;
+   double imaginary = -4;
+
+   // create a stream we can use to simulate cin
+   std::stringstream buffer;
+   buffer << real << imaginary << "i";
+
+   Complex complex;
+   buffer >> complex;
+
+   CHECK_CLOSE(real, complex.getReal(), DOUBLE_TOLERANCE);
+   CHECK_CLOSE(imaginary, complex.getImaginary(), DOUBLE_TOLERANCE);
 }
 
 int main() {

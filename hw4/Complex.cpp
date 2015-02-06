@@ -27,6 +27,15 @@ ChrisMcCann::Complex::Complex(
 
 }
 
+ChrisMcCann::Complex
+ChrisMcCann::Complex::operator+(const Complex &other) const
+{
+   double real = this->real + other.real;
+   double imaginary = this->imaginary + other.imaginary;
+
+   return Complex(real, imaginary);
+}
+
 ostream &ChrisMcCann::operator<<(ostream &out, const Complex &value)
 {
    out << value.real;
@@ -43,10 +52,12 @@ istream &ChrisMcCann::operator>>(istream &in, Complex &value)
    double real;
    char iSign;
    double imaginary;
+   char i;
 
    in >> real;
    in >> iSign;
    in >> imaginary;
+   in >> i;
 
    value.real = real;
    value.imaginary = imaginary;
@@ -58,3 +69,14 @@ istream &ChrisMcCann::operator>>(istream &in, Complex &value)
    return in;
 }
 
+double
+ChrisMcCann::Complex::getReal() const
+{
+   return this->real;
+}
+
+double
+ChrisMcCann::Complex::getImaginary() const
+{
+   return this->imaginary;
+}
