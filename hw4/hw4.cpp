@@ -244,7 +244,6 @@ TEST(AddCustomComplexValuesZeroSums)
    CHECK_CLOSE(imaginary1 + imaginary2, complexSum.getImaginary(), DOUBLE_TOLERANCE);
 }
 
-
 TEST(SubtractDefaultComplexValues)
 {
    // test values for constructing a complex
@@ -309,6 +308,42 @@ TEST(SubtractCustomComplexValuesZeroSums)
 
    CHECK_CLOSE(real1 - real2, complexDiff.getReal(), DOUBLE_TOLERANCE);
    CHECK_CLOSE(imaginary1 - imaginary2, complexDiff.getImaginary(), DOUBLE_TOLERANCE);
+}
+
+TEST(DefaultComplexEquality)
+{
+   Complex complex1;
+   Complex complex2;
+
+   CHECK_EQUAL(true, complex1 == complex2);
+   CHECK_EQUAL(false, complex1 != complex2);
+}
+
+TEST(CustomComplexEquality)
+{
+   // test values for constructing a complex
+   double real = -1;
+   double imaginary = 3;
+   Complex complex1(real, imaginary);
+   Complex complex2(real, imaginary);
+
+   CHECK_EQUAL(true, complex1 == complex2);
+   CHECK_EQUAL(false, complex1 != complex2);
+}
+
+TEST(CustomDifferentComplexEquality)
+{
+   // test values for constructing a complex
+   double real1 = -1;
+   double imaginary1 = 3;
+   Complex complex1(real1, imaginary1);
+
+   double real2 = 1;
+   double imaginary2 = -3;
+   Complex complex2(real2, imaginary2);
+
+   CHECK_EQUAL(false, complex1 == complex2);
+   CHECK_EQUAL(true, complex1 != complex2);
 }
 
 int main() {
