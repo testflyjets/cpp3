@@ -60,7 +60,7 @@ namespace ChrisMcCann
       //          stream.
       //
       // RETURNS
-      //      The 0stream object.
+      //      The ostream object.
       //---------------------------------------------------------------------
       friend ostream &operator<<(ostream &out, const Complex &value);
 
