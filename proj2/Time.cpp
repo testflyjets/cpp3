@@ -22,7 +22,8 @@ using std::ostream;
 using Project2::Time;
 
 const int SECONDS_PER_MINUTE = 60;
-const int SECONDS_PER_HOUR = 3600;
+const int MINUTES_PER_HOUR = 60;
+const int SECONDS_PER_HOUR = SECONDS_PER_MINUTE * MINUTES_PER_HOUR;
 
 Project2::Time::Time(
    int hours, 
@@ -39,11 +40,11 @@ Time
 &Project2::Time::operator+=(const Time &rhs)
 {
    int sumSeconds = this->seconds + rhs.seconds;
-   div_t timeDiv = div(sumSeconds, 60);
+   div_t timeDiv = div(sumSeconds, SECONDS_PER_MINUTE);
    this->seconds = timeDiv.rem;
 
    int sumMinutes = this->minutes + rhs.minutes + timeDiv.quot;
-   timeDiv = div(sumMinutes, 60);
+   timeDiv = div(sumMinutes, MINUTES_PER_HOUR);
    this->minutes = timeDiv.rem;
 
    this->hours = this->hours + rhs.hours + timeDiv.quot;

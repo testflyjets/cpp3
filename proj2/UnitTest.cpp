@@ -105,68 +105,68 @@ void Project2UnitTest::TestTime()
     TestTime_OperatorPlusEqual();
 }
 
-//void TestDataRecorder_log0DigitsAfterSensorValueDecimal()
-//{
-//    TestFramework::BeginTest("TestDataRecorder_log0DigitsAfterSensorValueDecimal");
-//
-//    stringstream ss;
-//    DataRecorder dr(ss);
-//    dr.log(Time(5, 6, 7), "test sensor", 12., "test units");
-//    TEST_ASSERT("5h:6m:7s - test sensor - 12.00 test units\n" == ss.str());
-//
-//    TestFramework::EndTest();
-//}
-//
-//void TestDataRecorder_log1DigitsAfterSensorValueDecimal()
-//{
-//    TestFramework::BeginTest("TestDataRecorder_log1DigitsAfterSensorValueDecimal");
-//
-//    stringstream ss;
-//    DataRecorder dr(ss);
-//    dr.log(Time(5, 6, 7), "test sensor", 12.1, "test units");
-//    TEST_ASSERT("5h:6m:7s - test sensor - 12.10 test units\n" == ss.str());
-//
-//    TestFramework::EndTest();
-//}
-//
-//void TestDataRecorder_log2DigitsAfterSensorValueDecimal()
-//{
-//    TestFramework::BeginTest("TestDataRecorder_log2DigitsAfterSensorValueDecimal");
-//
-//    stringstream ss;
-//    DataRecorder dr(ss);
-//    dr.log(Time(5, 6, 7), "test sensor", 12.23, "test units");
-//    TEST_ASSERT("5h:6m:7s - test sensor - 12.23 test units\n" == ss.str());
-//
-//    TestFramework::EndTest();
-//}
-//
-//void TestDataRecorder_log3DigitsAfterSensorValueDecimal()
-//{
-//    TestFramework::BeginTest("TestDataRecorder_log3DigitsAfterSensorValueDecimal");
-//
-//    // 3rd digit <= 5 --> round down
-//    stringstream ss1;
-//    DataRecorder dr1(ss1);
-//    dr1.log(Time(5, 6, 7), "test sensor", 12.235, "test units");
-//    TEST_ASSERT("5h:6m:7s - test sensor - 12.23 test units\n" == ss1.str());
-//
-//    // 3rd digit > 5 --> round up
-//    stringstream ss2;
-//    DataRecorder dr2(ss2);
-//    dr2.log(Time(5, 6, 7), "test sensor", 12.236, "test units");
-//    TEST_ASSERT("5h:6m:7s - test sensor - 12.24 test units\n" == ss2.str());
-//
-//    TestFramework::EndTest();
-//}
-//
-//void Project2UnitTest::TestDataRecorder()
-//{
-//    TestDataRecorder_log0DigitsAfterSensorValueDecimal();
-//    TestDataRecorder_log1DigitsAfterSensorValueDecimal();
-//    TestDataRecorder_log2DigitsAfterSensorValueDecimal();
-//    TestDataRecorder_log3DigitsAfterSensorValueDecimal();
-//}
+void TestDataRecorder_log0DigitsAfterSensorValueDecimal()
+{
+    TestFramework::BeginTest("TestDataRecorder_log0DigitsAfterSensorValueDecimal");
+
+    stringstream ss;
+    DataRecorder dr(ss);
+    dr.log(Time(5, 6, 7), "test sensor", 12., "test units");
+    TEST_ASSERT("5h:6m:7s - test sensor - 12.00 test units\n" == ss.str());
+
+    TestFramework::EndTest();
+}
+
+void TestDataRecorder_log1DigitsAfterSensorValueDecimal()
+{
+    TestFramework::BeginTest("TestDataRecorder_log1DigitsAfterSensorValueDecimal");
+
+    stringstream ss;
+    DataRecorder dr(ss);
+    dr.log(Time(5, 6, 7), "test sensor", 12.1, "test units");
+    TEST_ASSERT("5h:6m:7s - test sensor - 12.10 test units\n" == ss.str());
+
+    TestFramework::EndTest();
+}
+
+void TestDataRecorder_log2DigitsAfterSensorValueDecimal()
+{
+    TestFramework::BeginTest("TestDataRecorder_log2DigitsAfterSensorValueDecimal");
+
+    stringstream ss;
+    DataRecorder dr(ss);
+    dr.log(Time(5, 6, 7), "test sensor", 12.23, "test units");
+    TEST_ASSERT("5h:6m:7s - test sensor - 12.23 test units\n" == ss.str());
+
+    TestFramework::EndTest();
+}
+
+void TestDataRecorder_log3DigitsAfterSensorValueDecimal()
+{
+    TestFramework::BeginTest("TestDataRecorder_log3DigitsAfterSensorValueDecimal");
+
+    // 3rd digit <= 5 --> round down
+    stringstream ss1;
+    DataRecorder dr1(ss1);
+    dr1.log(Time(5, 6, 7), "test sensor", 12.235, "test units");
+    TEST_ASSERT("5h:6m:7s - test sensor - 12.23 test units\n" == ss1.str());
+
+    // 3rd digit > 5 --> round up
+    stringstream ss2;
+    DataRecorder dr2(ss2);
+    dr2.log(Time(5, 6, 7), "test sensor", 12.236, "test units");
+    TEST_ASSERT("5h:6m:7s - test sensor - 12.24 test units\n" == ss2.str());
+
+    TestFramework::EndTest();
+}
+
+void Project2UnitTest::TestDataRecorder()
+{
+    TestDataRecorder_log0DigitsAfterSensorValueDecimal();
+    TestDataRecorder_log1DigitsAfterSensorValueDecimal();
+    TestDataRecorder_log2DigitsAfterSensorValueDecimal();
+    TestDataRecorder_log3DigitsAfterSensorValueDecimal();
+}
 //
 //void TestConstantSignal_Zeroed()
 //{

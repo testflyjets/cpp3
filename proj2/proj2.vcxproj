@@ -64,6 +64,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="DataRecorder.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="TestFramework.cpp" />
     <ClCompile Include="Time.cpp" />
