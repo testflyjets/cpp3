@@ -239,106 +239,106 @@ void Project2UnitTest::TestConstantSignal()
     TestConstantSignal_VariedAll();
 }
 
-//void TestSawtoothSignal_Zeroed()
-//{
-//    TestFramework::BeginTest("TestSawtoothSignal_Zeroed");
-//
-//    // Zero value offset, zero time offset, value range from 0 to 10, period 1 minute
-//    SawtoothSignal ss1(0, Time(0, 0, 0), 0, 10, Time(0, 1, 0));
-//    TEST_ASSERT(0 == ss1.getVoltageAtTime(Time(0, 0, 0)));
-//    TEST_ASSERT(2.5 == ss1.getVoltageAtTime(Time(0, 0, 15)));
-//    TEST_ASSERT(5 == ss1.getVoltageAtTime(Time(0, 0, 30)));
-//    TEST_ASSERT(7.5 == ss1.getVoltageAtTime(Time(0, 0, 45)));
-//    TEST_ASSERT(0 == ss1.getVoltageAtTime(Time(0, 0, 60)));
-//
-//    // Zero value offset, zero time offset, value range from 0 to 2000, period 1 hour
-//    SawtoothSignal ss2(0, Time(0, 0, 0), 0, 2000, Time(1, 0, 0));
-//    TEST_ASSERT(0 == ss2.getVoltageAtTime(Time(0, 0, 0)));
-//    TEST_ASSERT(500 == ss2.getVoltageAtTime(Time(0, 15, 0)));
-//    TEST_ASSERT(1000 == ss2.getVoltageAtTime(Time(0, 30, 0)));
-//    TEST_ASSERT(1500 == ss2.getVoltageAtTime(Time(0, 45, 0)));
-//    TEST_ASSERT(0 == ss2.getVoltageAtTime(Time(1, 0, 0)));
-//
-//    // Zero value offset, zero time offset, value range from -10 to 10, period 4 hours
-//    SawtoothSignal ss3(0, Time(0, 0, 0), -10, 10, Time(4, 0, 0));
-//    TEST_ASSERT(-10 == ss3.getVoltageAtTime(Time(0, 0, 0)));
-//    TEST_ASSERT(-5 == ss3.getVoltageAtTime(Time(1, 0, 0)));
-//    TEST_ASSERT(0 == ss3.getVoltageAtTime(Time(2, 0, 0)));
-//    TEST_ASSERT(5 == ss3.getVoltageAtTime(Time(3, 0, 0)));
-//    TEST_ASSERT(-10 == ss3.getVoltageAtTime(Time(4, 0, 0)));
-//
-//    TestFramework::EndTest();
-//}
-//
-//void TestSawtoothSignal_VariedValueOffset()
-//{
-//    TestFramework::BeginTest("TestSawtoothSignal_VariedValueOffset");
-//
-//    // Positive value offset, zero time offset, value range from 0 to 10, period 1 minute
-//    SawtoothSignal ss1(13, Time(0, 0, 0), 0, 10, Time(0, 1, 0));
-//    TEST_ASSERT(13 == ss1.getVoltageAtTime(Time(0, 0, 0)));
-//    TEST_ASSERT(15.5 == ss1.getVoltageAtTime(Time(0, 0, 15)));
-//    TEST_ASSERT(18 == ss1.getVoltageAtTime(Time(0, 0, 30)));
-//    TEST_ASSERT(20.5 == ss1.getVoltageAtTime(Time(0, 0, 45)));
-//    TEST_ASSERT(13 == ss1.getVoltageAtTime(Time(0, 0, 60)));
-//
-//    // Negative value offset, zero time offset, value range from 0 to 10, period 1 minute
-//    SawtoothSignal ss2(-13, Time(0, 0, 0), 0, 10, Time(0, 1, 0));
-//    TEST_ASSERT(-13 == ss2.getVoltageAtTime(Time(0, 0, 0)));
-//    TEST_ASSERT(-10.5 == ss2.getVoltageAtTime(Time(0, 0, 15)));
-//    TEST_ASSERT(-8.0 == ss2.getVoltageAtTime(Time(0, 0, 30)));
-//    TEST_ASSERT(-5.5 == ss2.getVoltageAtTime(Time(0, 0, 45)));
-//    TEST_ASSERT(-13 == ss2.getVoltageAtTime(Time(0, 0, 60)));
-//
-//    TestFramework::EndTest();
-//}
-//
-//void TestSawtoothSignal_VariedTimeOffset()
-//{
-//    TestFramework::BeginTest("TestSawtoothSignal_VariedTimeOffset");
-//
-//    // Zero value offset, 15 second time offset, value range from 0 to 10, period 1 minute
-//    SawtoothSignal ss1(0, Time(0, 0, 15), 0, 10, Time(0, 1, 0));
-//    TEST_ASSERT(2.5 == ss1.getVoltageAtTime(Time(0, 0, 0)));
-//    TEST_ASSERT(5 == ss1.getVoltageAtTime(Time(0, 0, 15)));
-//    TEST_ASSERT(7.5 == ss1.getVoltageAtTime(Time(0, 0, 30)));
-//    TEST_ASSERT(0 == ss1.getVoltageAtTime(Time(0, 0, 45)));
-//    TEST_ASSERT(2.5 == ss1.getVoltageAtTime(Time(0, 0, 60)));
-//
-//    TestFramework::EndTest();
-//}
-//
-//void TestSawtoothSignal_VariedAll()
-//{
-//    TestFramework::BeginTest("TestSawtoothSignal_VariedAll");
-//
-//    // Positive value offset, 15 second time offset, value range from 0 to 10, period 1 minute
-//    SawtoothSignal ss1(3, Time(0, 0, 15), 0, 10, Time(0, 1, 0));
-//    TEST_ASSERT(5.5 == ss1.getVoltageAtTime(Time(0, 0, 0)));
-//    TEST_ASSERT(8 == ss1.getVoltageAtTime(Time(0, 0, 15)));
-//    TEST_ASSERT(10.5 == ss1.getVoltageAtTime(Time(0, 0, 30)));
-//    TEST_ASSERT(3 == ss1.getVoltageAtTime(Time(0, 0, 45)));
-//    TEST_ASSERT(5.5 == ss1.getVoltageAtTime(Time(0, 0, 60)));
-//
-//    // Negative value offset, 15 second time offset, value range from 0 to 10, period 1 minute
-//    SawtoothSignal ss2(-3, Time(0, 0, 15), 0, 10, Time(0, 1, 0));
-//    TEST_ASSERT(-0.5 == ss2.getVoltageAtTime(Time(0, 0, 0)));
-//    TEST_ASSERT(2 == ss2.getVoltageAtTime(Time(0, 0, 15)));
-//    TEST_ASSERT(4.5 == ss2.getVoltageAtTime(Time(0, 0, 30)));
-//    TEST_ASSERT(-3 == ss2.getVoltageAtTime(Time(0, 0, 45)));
-//    TEST_ASSERT(-0.5 == ss2.getVoltageAtTime(Time(0, 0, 60)));
-//
-//    TestFramework::EndTest();
-//}
-//
-//void Project2UnitTest::TestSawtoothSignal()
-//{
-//    TestSawtoothSignal_Zeroed();
-//    TestSawtoothSignal_VariedValueOffset();
-//    TestSawtoothSignal_VariedTimeOffset();
-//    TestSawtoothSignal_VariedAll();
-//}
-//
+void TestSawtoothSignal_Zeroed()
+{
+    TestFramework::BeginTest("TestSawtoothSignal_Zeroed");
+
+    // Zero value offset, zero time offset, value range from 0 to 10, period 1 minute
+    SawtoothSignal ss1(0, Time(0, 0, 0), 0, 10, Time(0, 1, 0));
+    TEST_ASSERT(0 == ss1.getVoltageAtTime(Time(0, 0, 0)));
+    TEST_ASSERT(2.5 == ss1.getVoltageAtTime(Time(0, 0, 15)));
+    TEST_ASSERT(5 == ss1.getVoltageAtTime(Time(0, 0, 30)));
+    TEST_ASSERT(7.5 == ss1.getVoltageAtTime(Time(0, 0, 45)));
+    TEST_ASSERT(0 == ss1.getVoltageAtTime(Time(0, 0, 60)));
+
+    // Zero value offset, zero time offset, value range from 0 to 2000, period 1 hour
+    SawtoothSignal ss2(0, Time(0, 0, 0), 0, 2000, Time(1, 0, 0));
+    TEST_ASSERT(0 == ss2.getVoltageAtTime(Time(0, 0, 0)));
+    TEST_ASSERT(500 == ss2.getVoltageAtTime(Time(0, 15, 0)));
+    TEST_ASSERT(1000 == ss2.getVoltageAtTime(Time(0, 30, 0)));
+    TEST_ASSERT(1500 == ss2.getVoltageAtTime(Time(0, 45, 0)));
+    TEST_ASSERT(0 == ss2.getVoltageAtTime(Time(1, 0, 0)));
+
+    // Zero value offset, zero time offset, value range from -10 to 10, period 4 hours
+    SawtoothSignal ss3(0, Time(0, 0, 0), -10, 10, Time(4, 0, 0));
+    TEST_ASSERT(-10 == ss3.getVoltageAtTime(Time(0, 0, 0)));
+    TEST_ASSERT(-5 == ss3.getVoltageAtTime(Time(1, 0, 0)));
+    TEST_ASSERT(0 == ss3.getVoltageAtTime(Time(2, 0, 0)));
+    TEST_ASSERT(5 == ss3.getVoltageAtTime(Time(3, 0, 0)));
+    TEST_ASSERT(-10 == ss3.getVoltageAtTime(Time(4, 0, 0)));
+
+    TestFramework::EndTest();
+}
+
+void TestSawtoothSignal_VariedValueOffset()
+{
+    TestFramework::BeginTest("TestSawtoothSignal_VariedValueOffset");
+
+    // Positive value offset, zero time offset, value range from 0 to 10, period 1 minute
+    SawtoothSignal ss1(13, Time(0, 0, 0), 0, 10, Time(0, 1, 0));
+    TEST_ASSERT(13 == ss1.getVoltageAtTime(Time(0, 0, 0)));
+    TEST_ASSERT(15.5 == ss1.getVoltageAtTime(Time(0, 0, 15)));
+    TEST_ASSERT(18 == ss1.getVoltageAtTime(Time(0, 0, 30)));
+    TEST_ASSERT(20.5 == ss1.getVoltageAtTime(Time(0, 0, 45)));
+    TEST_ASSERT(13 == ss1.getVoltageAtTime(Time(0, 0, 60)));
+
+    // Negative value offset, zero time offset, value range from 0 to 10, period 1 minute
+    SawtoothSignal ss2(-13, Time(0, 0, 0), 0, 10, Time(0, 1, 0));
+    TEST_ASSERT(-13 == ss2.getVoltageAtTime(Time(0, 0, 0)));
+    TEST_ASSERT(-10.5 == ss2.getVoltageAtTime(Time(0, 0, 15)));
+    TEST_ASSERT(-8.0 == ss2.getVoltageAtTime(Time(0, 0, 30)));
+    TEST_ASSERT(-5.5 == ss2.getVoltageAtTime(Time(0, 0, 45)));
+    TEST_ASSERT(-13 == ss2.getVoltageAtTime(Time(0, 0, 60)));
+
+    TestFramework::EndTest();
+}
+
+void TestSawtoothSignal_VariedTimeOffset()
+{
+    TestFramework::BeginTest("TestSawtoothSignal_VariedTimeOffset");
+
+    // Zero value offset, 15 second time offset, value range from 0 to 10, period 1 minute
+    SawtoothSignal ss1(0, Time(0, 0, 15), 0, 10, Time(0, 1, 0));
+    TEST_ASSERT(2.5 == ss1.getVoltageAtTime(Time(0, 0, 0)));
+    TEST_ASSERT(5 == ss1.getVoltageAtTime(Time(0, 0, 15)));
+    TEST_ASSERT(7.5 == ss1.getVoltageAtTime(Time(0, 0, 30)));
+    TEST_ASSERT(0 == ss1.getVoltageAtTime(Time(0, 0, 45)));
+    TEST_ASSERT(2.5 == ss1.getVoltageAtTime(Time(0, 0, 60)));
+
+    TestFramework::EndTest();
+}
+
+void TestSawtoothSignal_VariedAll()
+{
+    TestFramework::BeginTest("TestSawtoothSignal_VariedAll");
+
+    // Positive value offset, 15 second time offset, value range from 0 to 10, period 1 minute
+    SawtoothSignal ss1(3, Time(0, 0, 15), 0, 10, Time(0, 1, 0));
+    TEST_ASSERT(5.5 == ss1.getVoltageAtTime(Time(0, 0, 0)));
+    TEST_ASSERT(8 == ss1.getVoltageAtTime(Time(0, 0, 15)));
+    TEST_ASSERT(10.5 == ss1.getVoltageAtTime(Time(0, 0, 30)));
+    TEST_ASSERT(3 == ss1.getVoltageAtTime(Time(0, 0, 45)));
+    TEST_ASSERT(5.5 == ss1.getVoltageAtTime(Time(0, 0, 60)));
+
+    // Negative value offset, 15 second time offset, value range from 0 to 10, period 1 minute
+    SawtoothSignal ss2(-3, Time(0, 0, 15), 0, 10, Time(0, 1, 0));
+    TEST_ASSERT(-0.5 == ss2.getVoltageAtTime(Time(0, 0, 0)));
+    TEST_ASSERT(2 == ss2.getVoltageAtTime(Time(0, 0, 15)));
+    TEST_ASSERT(4.5 == ss2.getVoltageAtTime(Time(0, 0, 30)));
+    TEST_ASSERT(-3 == ss2.getVoltageAtTime(Time(0, 0, 45)));
+    TEST_ASSERT(-0.5 == ss2.getVoltageAtTime(Time(0, 0, 60)));
+
+    TestFramework::EndTest();
+}
+
+void Project2UnitTest::TestSawtoothSignal()
+{
+    TestSawtoothSignal_Zeroed();
+    TestSawtoothSignal_VariedValueOffset();
+    TestSawtoothSignal_VariedTimeOffset();
+    TestSawtoothSignal_VariedAll();
+}
+
 //bool IsWithinRange(double expectedValue, double delta, double actualValue)
 //{
 //    return (actualValue > expectedValue - delta) && (actualValue < expectedValue + delta);

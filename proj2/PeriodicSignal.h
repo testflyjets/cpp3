@@ -9,6 +9,9 @@
 #ifndef PROJECT2_PERIODICSIGNAL_H
 #define PROJECT2_PERIODICSIGNAL_H
 
+#include "Signal.h"
+#include "Time.h"
+
 namespace Project2
 {
    //=========================================================================
@@ -17,14 +20,9 @@ namespace Project2
    // RESOURCES
    //      
    //=========================================================================
-   class PeriodicSignal
+   class PeriodicSignal : public Signal
    {
    public:
-      //---------------------------------------------------------------------
-      // Types of coins.  The enumerator's numeric value is the coin's value
-      // in cents.
-      //---------------------------------------------------------------------
-
       //---------------------------------------------------------------------
       // SUMMARY
       //      Constructor.  Initializes the coin's denomination to the given
@@ -40,22 +38,8 @@ namespace Project2
       // RETURNS
       //      Nothing
       //---------------------------------------------------------------------
-      PeriodicSignal();
-
-      //---------------------------------------------------------------------
-      // SUMMARY
-      //      Returns the type of this coin.
-      //
-      // RESOURCES
-      //      None
-      //
-      // PARAMETERS
-      //      None
-      //
-      // RETURNS
-      //      The type of this coin.
-      //---------------------------------------------------------------------
-      //CoinType getDenomination() const;
+      PeriodicSignal(double voltageOffset, Time timeOffset, 
+         double minVoltage, double maxVoltage, Time period);
 
       //---------------------------------------------------------------------
       // SUMMARY
@@ -70,10 +54,17 @@ namespace Project2
       // RETURNS
       //      The value of the coin in cents.
       //---------------------------------------------------------------------
-      unsigned getValueCents() const;
+      virtual double getVoltageAtTime(Time t) const = 0;
+
+   protected:
+      double getMinVoltage() const;
+      double getMaxVoltage() const;
+      Time getPeriod() const;
 
    private:
-      
+      double minVoltage;
+      double maxVoltage;
+      Time period;
    };
 }
 

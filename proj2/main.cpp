@@ -21,7 +21,7 @@ int main()
     Project2UnitTest::TestTime();
     Project2UnitTest::TestDataRecorder();
     Project2UnitTest::TestConstantSignal();
-    //Project2UnitTest::TestSawtoothSignal();
+    Project2UnitTest::TestSawtoothSignal();
     //Project2UnitTest::TestSineSignal();
     //Project2UnitTest::TestAngularSensor();
     //Project2UnitTest::TestPressureSensor();

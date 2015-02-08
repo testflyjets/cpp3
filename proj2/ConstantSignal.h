@@ -38,7 +38,7 @@ namespace Project2
         // RETURNS
         //      Nothing
         //---------------------------------------------------------------------
-        ConstantSignal(double valueOffset, Time timeOffset);
+        ConstantSignal(double voltageOffset, Time timeOffset);
 
         //---------------------------------------------------------------------
         // SUMMARY
@@ -53,7 +53,7 @@ namespace Project2
         // RETURNS
         //      The value of the coin in cents.
         //---------------------------------------------------------------------
-        double getVoltageAtTime(Time t) const;
+        virtual double getVoltageAtTime(Time t) const;
 
     private:
         

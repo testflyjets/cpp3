@@ -27,12 +27,6 @@ namespace Project2
    {
    public:
       //---------------------------------------------------------------------
-      // Types of coins.  The enumerator's numeric value is the coin's value
-      // in cents.
-      //---------------------------------------------------------------------
-
-      void takeReading(Time t, DataRecorder &recorder);
-      //---------------------------------------------------------------------
       // SUMMARY
       //      Constructor.  Initializes the coin's denomination to the given
       //      type.
@@ -49,6 +43,9 @@ namespace Project2
       //---------------------------------------------------------------------
       Sensor(string name, Signal &source);
 
+      void takeReading(Time t, DataRecorder &recorder) const;
+
+   protected:
       //---------------------------------------------------------------------
       // SUMMARY
       //      Returns the type of this coin.
@@ -62,7 +59,7 @@ namespace Project2
       // RETURNS
       //      The type of this coin.
       //---------------------------------------------------------------------
-      string getUnits() const;
+      virtual string getUnits() const = 0;
 
       //---------------------------------------------------------------------
       // SUMMARY
@@ -95,7 +92,7 @@ namespace Project2
       string getName() const;
 
    private:
-      Signal source;
+      Signal &source;
       string name;
    };
 }

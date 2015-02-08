@@ -52,8 +52,9 @@ namespace Project2
         // RETURNS
         //      The type of this coin.
         //---------------------------------------------------------------------
-        double getVoltageAtTimeT(Time t);
+        virtual double getVoltageAtTime(Time t) const = 0;
 
+    protected:
         //---------------------------------------------------------------------
         // SUMMARY
         //      Returns the type of this coin.

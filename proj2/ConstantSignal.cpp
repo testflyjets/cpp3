@@ -2,7 +2,7 @@
  * testflyjets@gmail.com
  * C/C++ Programming 3, Section ID 105730, Ray Mitchell III
  * February 6, 2015
- * Signal.cpp
+ * ConstantSignal.cpp
  * Windows 8.1 Enterprise 64-bit
  * Microsoft Visual Studio 2013 Express for Desktop
  * 
@@ -17,9 +17,9 @@
 using Project2::Time;
 
 Project2::ConstantSignal::ConstantSignal(
-   double valueOffset,
+   double voltageOffset,
    Time timeOffset)
-   : Signal(valueOffset, timeOffset)
+   : Signal(voltageOffset, timeOffset)
 {
 
 }
