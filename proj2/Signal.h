@@ -23,11 +23,6 @@ namespace Project2
     {
     public:
         //---------------------------------------------------------------------
-        // Types of coins.  The enumerator's numeric value is the coin's value
-        // in cents.
-        //---------------------------------------------------------------------
-
-        //---------------------------------------------------------------------
         // SUMMARY
         //      Constructor.  Initializes the coin's denomination to the given
         //      type.
@@ -87,7 +82,7 @@ namespace Project2
         // RETURNS
         //      The value of the coin in cents.
         //---------------------------------------------------------------------
-        double getVoltageOffset() const;
+        virtual double getVoltageOffset() const;
 
     private:
        double voltageOffset;

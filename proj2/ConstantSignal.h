@@ -9,6 +9,9 @@
 #ifndef PROJECT2_CONSTANTSIGNAL_H
 #define PROJECT2_CONSTANTSIGNAL_H
 
+#include "Signal.h"
+#include "Time.h"
+
 namespace Project2
 {
     //=========================================================================
@@ -17,14 +20,9 @@ namespace Project2
     // RESOURCES
     //      
     //=========================================================================
-    class ConstantSignal
+    class ConstantSignal : public Signal
     {
     public:
-        //---------------------------------------------------------------------
-        // Types of coins.  The enumerator's numeric value is the coin's value
-        // in cents.
-        //---------------------------------------------------------------------
-
         //---------------------------------------------------------------------
         // SUMMARY
         //      Constructor.  Initializes the coin's denomination to the given
@@ -40,22 +38,7 @@ namespace Project2
         // RETURNS
         //      Nothing
         //---------------------------------------------------------------------
-        ConstantSignal();
-
-        //---------------------------------------------------------------------
-        // SUMMARY
-        //      Returns the type of this coin.
-        //
-        // RESOURCES
-        //      None
-        //
-        // PARAMETERS
-        //      None
-        //
-        // RETURNS
-        //      The type of this coin.
-        //---------------------------------------------------------------------
-        //CoinType getDenomination() const;
+        ConstantSignal(double valueOffset, Time timeOffset);
 
         //---------------------------------------------------------------------
         // SUMMARY
@@ -70,7 +53,7 @@ namespace Project2
         // RETURNS
         //      The value of the coin in cents.
         //---------------------------------------------------------------------
-        unsigned getValueCents() const;
+        double getVoltageAtTime(Time t) const;
 
     private:
         

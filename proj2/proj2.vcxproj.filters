@@ -30,6 +30,12 @@
     <ClCompile Include="DataRecorder.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Signal.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ConstantSignal.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="TestFramework.h">

@@ -64,8 +64,10 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="ConstantSignal.cpp" />
     <ClCompile Include="DataRecorder.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="Signal.cpp" />
     <ClCompile Include="TestFramework.cpp" />
     <ClCompile Include="Time.cpp" />
     <ClCompile Include="UnitTest.cpp" />

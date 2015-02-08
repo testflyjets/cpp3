@@ -167,78 +167,78 @@ void Project2UnitTest::TestDataRecorder()
     TestDataRecorder_log2DigitsAfterSensorValueDecimal();
     TestDataRecorder_log3DigitsAfterSensorValueDecimal();
 }
-//
-//void TestConstantSignal_Zeroed()
-//{
-//    TestFramework::BeginTest("TestConstantSignal_Zeroed");
-//
-//    ConstantSignal cs(0, Time(0, 0, 0));
-//    TEST_ASSERT(0 == cs.getVoltageAtTime(Time(0, 0, 0)));
-//    TEST_ASSERT(0 == cs.getVoltageAtTime(Time(1, 1, 1)));
-//    TEST_ASSERT(0 == cs.getVoltageAtTime(Time(327, 59, 59)));
-//
-//    TestFramework::EndTest();
-//}
-//
-//void TestConstantSignal_VariedValueOffset()
-//{
-//    TestFramework::BeginTest("TestConstantSignal_VariedValueOffset");
-//
-//    // Positive value offset
-//    ConstantSignal cs1(12.5, Time(0, 0, 0));
-//    TEST_ASSERT(12.5 == cs1.getVoltageAtTime(Time(0, 0, 0)));
-//    TEST_ASSERT(12.5 == cs1.getVoltageAtTime(Time(1, 1, 1)));
-//    TEST_ASSERT(12.5 == cs1.getVoltageAtTime(Time(327, 59, 59)));
-//
-//    // Negative value offset
-//    ConstantSignal cs2(-12.5, Time(0, 0, 0));
-//    TEST_ASSERT(-12.5 == cs2.getVoltageAtTime(Time(0, 0, 0)));
-//    TEST_ASSERT(-12.5 == cs2.getVoltageAtTime(Time(1, 1, 1)));
-//    TEST_ASSERT(-12.5 == cs2.getVoltageAtTime(Time(327, 59, 59)));
-//
-//    TestFramework::EndTest();
-//}
-//
-//void TestConstantSignal_VariedTimeOffset()
-//{
-//    TestFramework::BeginTest("TestConstantSignal_VariedTimeOffset");
-//
-//    // Positive time offset
-//    ConstantSignal cs1(0, Time(1, 2, 3));
-//    TEST_ASSERT(0 == cs1.getVoltageAtTime(Time(0, 0, 0)));
-//    TEST_ASSERT(0 == cs1.getVoltageAtTime(Time(1, 1, 1)));
-//    TEST_ASSERT(0 == cs1.getVoltageAtTime(Time(327, 59, 59)));
-//
-//    TestFramework::EndTest();
-//}
-//
-//void TestConstantSignal_VariedAll()
-//{
-//    TestFramework::BeginTest("TestConstantSignal_VariedAll");
-//
-//    // Positive value offset, positive time offset
-//    ConstantSignal cs1(73.8, Time(1, 2, 3));
-//    TEST_ASSERT(73.8 == cs1.getVoltageAtTime(Time(0, 0, 0)));
-//    TEST_ASSERT(73.8 == cs1.getVoltageAtTime(Time(1, 1, 1)));
-//    TEST_ASSERT(73.8 == cs1.getVoltageAtTime(Time(327, 59, 59)));
-//
-//    // Negative value offset, positive time offset
-//    ConstantSignal cs2(-73.8, Time(1, 2, 3));
-//    TEST_ASSERT(-73.8 == cs2.getVoltageAtTime(Time(0, 0, 0)));
-//    TEST_ASSERT(-73.8 == cs2.getVoltageAtTime(Time(1, 1, 1)));
-//    TEST_ASSERT(-73.8 == cs2.getVoltageAtTime(Time(327, 59, 59)));
-//
-//    TestFramework::EndTest();
-//}
-//
-//void Project2UnitTest::TestConstantSignal()
-//{
-//    TestConstantSignal_Zeroed();
-//    TestConstantSignal_VariedValueOffset();
-//    TestConstantSignal_VariedTimeOffset();
-//    TestConstantSignal_VariedAll();
-//}
-//
+
+void TestConstantSignal_Zeroed()
+{
+    TestFramework::BeginTest("TestConstantSignal_Zeroed");
+
+    ConstantSignal cs(0, Time(0, 0, 0));
+    TEST_ASSERT(0 == cs.getVoltageAtTime(Time(0, 0, 0)));
+    TEST_ASSERT(0 == cs.getVoltageAtTime(Time(1, 1, 1)));
+    TEST_ASSERT(0 == cs.getVoltageAtTime(Time(327, 59, 59)));
+
+    TestFramework::EndTest();
+}
+
+void TestConstantSignal_VariedValueOffset()
+{
+    TestFramework::BeginTest("TestConstantSignal_VariedValueOffset");
+
+    // Positive value offset
+    ConstantSignal cs1(12.5, Time(0, 0, 0));
+    TEST_ASSERT(12.5 == cs1.getVoltageAtTime(Time(0, 0, 0)));
+    TEST_ASSERT(12.5 == cs1.getVoltageAtTime(Time(1, 1, 1)));
+    TEST_ASSERT(12.5 == cs1.getVoltageAtTime(Time(327, 59, 59)));
+
+    // Negative value offset
+    ConstantSignal cs2(-12.5, Time(0, 0, 0));
+    TEST_ASSERT(-12.5 == cs2.getVoltageAtTime(Time(0, 0, 0)));
+    TEST_ASSERT(-12.5 == cs2.getVoltageAtTime(Time(1, 1, 1)));
+    TEST_ASSERT(-12.5 == cs2.getVoltageAtTime(Time(327, 59, 59)));
+
+    TestFramework::EndTest();
+}
+
+void TestConstantSignal_VariedTimeOffset()
+{
+    TestFramework::BeginTest("TestConstantSignal_VariedTimeOffset");
+
+    // Positive time offset
+    ConstantSignal cs1(0, Time(1, 2, 3));
+    TEST_ASSERT(0 == cs1.getVoltageAtTime(Time(0, 0, 0)));
+    TEST_ASSERT(0 == cs1.getVoltageAtTime(Time(1, 1, 1)));
+    TEST_ASSERT(0 == cs1.getVoltageAtTime(Time(327, 59, 59)));
+
+    TestFramework::EndTest();
+}
+
+void TestConstantSignal_VariedAll()
+{
+    TestFramework::BeginTest("TestConstantSignal_VariedAll");
+
+    // Positive value offset, positive time offset
+    ConstantSignal cs1(73.8, Time(1, 2, 3));
+    TEST_ASSERT(73.8 == cs1.getVoltageAtTime(Time(0, 0, 0)));
+    TEST_ASSERT(73.8 == cs1.getVoltageAtTime(Time(1, 1, 1)));
+    TEST_ASSERT(73.8 == cs1.getVoltageAtTime(Time(327, 59, 59)));
+
+    // Negative value offset, positive time offset
+    ConstantSignal cs2(-73.8, Time(1, 2, 3));
+    TEST_ASSERT(-73.8 == cs2.getVoltageAtTime(Time(0, 0, 0)));
+    TEST_ASSERT(-73.8 == cs2.getVoltageAtTime(Time(1, 1, 1)));
+    TEST_ASSERT(-73.8 == cs2.getVoltageAtTime(Time(327, 59, 59)));
+
+    TestFramework::EndTest();
+}
+
+void Project2UnitTest::TestConstantSignal()
+{
+    TestConstantSignal_Zeroed();
+    TestConstantSignal_VariedValueOffset();
+    TestConstantSignal_VariedTimeOffset();
+    TestConstantSignal_VariedAll();
+}
+
 //void TestSawtoothSignal_Zeroed()
 //{
 //    TestFramework::BeginTest("TestSawtoothSignal_Zeroed");
