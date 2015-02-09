@@ -339,111 +339,111 @@ void Project2UnitTest::TestSawtoothSignal()
     TestSawtoothSignal_VariedAll();
 }
 
-//bool IsWithinRange(double expectedValue, double delta, double actualValue)
-//{
-//    return (actualValue > expectedValue - delta) && (actualValue < expectedValue + delta);
-//}
-//
-//void TestSineSignal_Zeroed()
-//{
-//    TestFramework::BeginTest("TestSineSignal_Zeroed");
-//
-//    // Zero value offset, zero time offset, value range from 0 to 10, period 1 minute
-//    SineSignal ss1(0, Time(0, 0, 0), 0, 10, Time(0, 1, 0));
-//    TEST_ASSERT(IsWithinRange(5, .1, ss1.getVoltageAtTime(Time(0, 0, 0))));
-//    TEST_ASSERT(IsWithinRange(10, .1, ss1.getVoltageAtTime(Time(0, 0, 15))));
-//    TEST_ASSERT(IsWithinRange(5, .1, ss1.getVoltageAtTime(Time(0, 0, 30))));
-//    TEST_ASSERT(IsWithinRange(0, .1, ss1.getVoltageAtTime(Time(0, 0, 45))));
-//    TEST_ASSERT(IsWithinRange(5, .1, ss1.getVoltageAtTime(Time(0, 0, 60))));
-//
-//    // Zero value offset, zero time offset, value range from 0 to 2000, period 1 hour
-//    SineSignal ss2(0, Time(0, 0, 0), 0, 2000, Time(1, 0, 0));
-//    TEST_ASSERT(IsWithinRange(1000, .1, ss2.getVoltageAtTime(Time(0, 0, 0))));
-//    TEST_ASSERT(IsWithinRange(2000, .1, ss2.getVoltageAtTime(Time(0, 15, 0))));
-//    TEST_ASSERT(IsWithinRange(1000, .1, ss2.getVoltageAtTime(Time(0, 30, 0))));
-//    TEST_ASSERT(IsWithinRange(0, .1, ss2.getVoltageAtTime(Time(0, 45, 0))));
-//    TEST_ASSERT(IsWithinRange(1000, .1, ss2.getVoltageAtTime(Time(1, 0, 0))));
-//
-//    // Zero value offset, zero time offset, value range from -10 to 10, period 4 hours
-//    SineSignal ss3(0, Time(0, 0, 0), -10, 10, Time(4, 0, 0));
-//    TEST_ASSERT(IsWithinRange(0, .1, ss3.getVoltageAtTime(Time(0, 0, 0))));
-//    TEST_ASSERT(IsWithinRange(10, .1, ss3.getVoltageAtTime(Time(1, 0, 0))));
-//    TEST_ASSERT(IsWithinRange(0, .1, ss3.getVoltageAtTime(Time(2, 0, 0))));
-//    TEST_ASSERT(IsWithinRange(-10, .1, ss3.getVoltageAtTime(Time(3, 0, 0))));
-//    TEST_ASSERT(IsWithinRange(0, .1, ss3.getVoltageAtTime(Time(4, 0, 0))));
-//
-//    TestFramework::EndTest();
-//}
-//
-//void TestSineSignal_VariedValueOffset()
-//{
-//    TestFramework::BeginTest("TestSineSignal_VariedValueOffset");
-//
-//    // Positive value offset, zero time offset, value range from 0 to 10, period 1 minute
-//    SineSignal ss1(13, Time(0, 0, 0), 0, 10, Time(0, 1, 0));
-//    TEST_ASSERT(IsWithinRange(18, .1, ss1.getVoltageAtTime(Time(0, 0, 0))));
-//    TEST_ASSERT(IsWithinRange(23, .1, ss1.getVoltageAtTime(Time(0, 0, 15))));
-//    TEST_ASSERT(IsWithinRange(18, .1, ss1.getVoltageAtTime(Time(0, 0, 30))));
-//    TEST_ASSERT(IsWithinRange(13, .1, ss1.getVoltageAtTime(Time(0, 0, 45))));
-//    TEST_ASSERT(IsWithinRange(18, .1, ss1.getVoltageAtTime(Time(0, 0, 60))));
-//
-//    // Negative value offset, zero time offset, value range from 0 to 10, period 1 minute
-//    SineSignal ss2(-13, Time(0, 0, 0), 0, 10, Time(0, 1, 0));
-//    TEST_ASSERT(IsWithinRange(-8, .1, ss2.getVoltageAtTime(Time(0, 0, 0))));
-//    TEST_ASSERT(IsWithinRange(-3, .1, ss2.getVoltageAtTime(Time(0, 0, 15))));
-//    TEST_ASSERT(IsWithinRange(-8, .1, ss2.getVoltageAtTime(Time(0, 0, 30))));
-//    TEST_ASSERT(IsWithinRange(-13, .1, ss2.getVoltageAtTime(Time(0, 0, 45))));
-//    TEST_ASSERT(IsWithinRange(-8, .1, ss2.getVoltageAtTime(Time(0, 0, 60))));
-//
-//    TestFramework::EndTest();
-//}
-//
-//void TestSineSignal_VariedTimeOffset()
-//{
-//    TestFramework::BeginTest("TestSineSignal_VariedTimeOffset");
-//
-//    // Zero value offset, 15 second time offset, value range from 0 to 10, period 1 minute
-//    SineSignal ss1(0, Time(0, 0, 15), 0, 10, Time(0, 1, 0));
-//    TEST_ASSERT(IsWithinRange(10, .1, ss1.getVoltageAtTime(Time(0, 0, 0))));
-//    TEST_ASSERT(IsWithinRange(5, .1, ss1.getVoltageAtTime(Time(0, 0, 15))));
-//    TEST_ASSERT(IsWithinRange(0, .1, ss1.getVoltageAtTime(Time(0, 0, 30))));
-//    TEST_ASSERT(IsWithinRange(5, .1, ss1.getVoltageAtTime(Time(0, 0, 45))));
-//    TEST_ASSERT(IsWithinRange(10, .1, ss1.getVoltageAtTime(Time(0, 0, 60))));
-//
-//    TestFramework::EndTest();
-//}
-//
-//void TestSineSignal_VariedAll()
-//{
-//    TestFramework::BeginTest("TestSineSignal_VariedAll");
-//
-//    // Positive value offset, 15 second time offset, value range from 0 to 10, period 1 minute
-//    SineSignal ss1(13, Time(0, 0, 15), 0, 10, Time(0, 1, 0));
-//    TEST_ASSERT(IsWithinRange(23, .1, ss1.getVoltageAtTime(Time(0, 0, 0))));
-//    TEST_ASSERT(IsWithinRange(18, .1, ss1.getVoltageAtTime(Time(0, 0, 15))));
-//    TEST_ASSERT(IsWithinRange(13, .1, ss1.getVoltageAtTime(Time(0, 0, 30))));
-//    TEST_ASSERT(IsWithinRange(18, .1, ss1.getVoltageAtTime(Time(0, 0, 45))));
-//    TEST_ASSERT(IsWithinRange(23, .1, ss1.getVoltageAtTime(Time(0, 0, 60))));
-//
-//    // Negative value offset, 15 second time offset, value range from 0 to 10, period 1 minute
-//    SineSignal ss2(-13, Time(0, 0, 15), 0, 10, Time(0, 1, 0));
-//    TEST_ASSERT(IsWithinRange(-3, .1, ss2.getVoltageAtTime(Time(0, 0, 0))));
-//    TEST_ASSERT(IsWithinRange(-8, .1, ss2.getVoltageAtTime(Time(0, 0, 15))));
-//    TEST_ASSERT(IsWithinRange(-13, .1, ss2.getVoltageAtTime(Time(0, 0, 30))));
-//    TEST_ASSERT(IsWithinRange(-8, .1, ss2.getVoltageAtTime(Time(0, 0, 45))));
-//    TEST_ASSERT(IsWithinRange(-3, .1, ss2.getVoltageAtTime(Time(0, 0, 60))));
-//
-//    TestFramework::EndTest();
-//}
-//
-//void Project2UnitTest::TestSineSignal()
-//{
-//    TestSineSignal_Zeroed();
-//    TestSineSignal_VariedValueOffset();
-//    TestSineSignal_VariedTimeOffset();
-//    TestSineSignal_VariedAll();
-//}
-//
+bool IsWithinRange(double expectedValue, double delta, double actualValue)
+{
+    return (actualValue > expectedValue - delta) && (actualValue < expectedValue + delta);
+}
+
+void TestSineSignal_Zeroed()
+{
+    TestFramework::BeginTest("TestSineSignal_Zeroed");
+
+    // Zero value offset, zero time offset, value range from 0 to 10, period 1 minute
+    SineSignal ss1(0, Time(0, 0, 0), 0, 10, Time(0, 1, 0));
+    TEST_ASSERT(IsWithinRange(5, .1, ss1.getVoltageAtTime(Time(0, 0, 0))));
+    TEST_ASSERT(IsWithinRange(10, .1, ss1.getVoltageAtTime(Time(0, 0, 15))));
+    TEST_ASSERT(IsWithinRange(5, .1, ss1.getVoltageAtTime(Time(0, 0, 30))));
+    TEST_ASSERT(IsWithinRange(0, .1, ss1.getVoltageAtTime(Time(0, 0, 45))));
+    TEST_ASSERT(IsWithinRange(5, .1, ss1.getVoltageAtTime(Time(0, 0, 60))));
+
+    // Zero value offset, zero time offset, value range from 0 to 2000, period 1 hour
+    SineSignal ss2(0, Time(0, 0, 0), 0, 2000, Time(1, 0, 0));
+    TEST_ASSERT(IsWithinRange(1000, .1, ss2.getVoltageAtTime(Time(0, 0, 0))));
+    TEST_ASSERT(IsWithinRange(2000, .1, ss2.getVoltageAtTime(Time(0, 15, 0))));
+    TEST_ASSERT(IsWithinRange(1000, .1, ss2.getVoltageAtTime(Time(0, 30, 0))));
+    TEST_ASSERT(IsWithinRange(0, .1, ss2.getVoltageAtTime(Time(0, 45, 0))));
+    TEST_ASSERT(IsWithinRange(1000, .1, ss2.getVoltageAtTime(Time(1, 0, 0))));
+
+    // Zero value offset, zero time offset, value range from -10 to 10, period 4 hours
+    SineSignal ss3(0, Time(0, 0, 0), -10, 10, Time(4, 0, 0));
+    TEST_ASSERT(IsWithinRange(0, .1, ss3.getVoltageAtTime(Time(0, 0, 0))));
+    TEST_ASSERT(IsWithinRange(10, .1, ss3.getVoltageAtTime(Time(1, 0, 0))));
+    TEST_ASSERT(IsWithinRange(0, .1, ss3.getVoltageAtTime(Time(2, 0, 0))));
+    TEST_ASSERT(IsWithinRange(-10, .1, ss3.getVoltageAtTime(Time(3, 0, 0))));
+    TEST_ASSERT(IsWithinRange(0, .1, ss3.getVoltageAtTime(Time(4, 0, 0))));
+
+    TestFramework::EndTest();
+}
+
+void TestSineSignal_VariedValueOffset()
+{
+    TestFramework::BeginTest("TestSineSignal_VariedValueOffset");
+
+    // Positive value offset, zero time offset, value range from 0 to 10, period 1 minute
+    SineSignal ss1(13, Time(0, 0, 0), 0, 10, Time(0, 1, 0));
+    TEST_ASSERT(IsWithinRange(18, .1, ss1.getVoltageAtTime(Time(0, 0, 0))));
+    TEST_ASSERT(IsWithinRange(23, .1, ss1.getVoltageAtTime(Time(0, 0, 15))));
+    TEST_ASSERT(IsWithinRange(18, .1, ss1.getVoltageAtTime(Time(0, 0, 30))));
+    TEST_ASSERT(IsWithinRange(13, .1, ss1.getVoltageAtTime(Time(0, 0, 45))));
+    TEST_ASSERT(IsWithinRange(18, .1, ss1.getVoltageAtTime(Time(0, 0, 60))));
+
+    // Negative value offset, zero time offset, value range from 0 to 10, period 1 minute
+    SineSignal ss2(-13, Time(0, 0, 0), 0, 10, Time(0, 1, 0));
+    TEST_ASSERT(IsWithinRange(-8, .1, ss2.getVoltageAtTime(Time(0, 0, 0))));
+    TEST_ASSERT(IsWithinRange(-3, .1, ss2.getVoltageAtTime(Time(0, 0, 15))));
+    TEST_ASSERT(IsWithinRange(-8, .1, ss2.getVoltageAtTime(Time(0, 0, 30))));
+    TEST_ASSERT(IsWithinRange(-13, .1, ss2.getVoltageAtTime(Time(0, 0, 45))));
+    TEST_ASSERT(IsWithinRange(-8, .1, ss2.getVoltageAtTime(Time(0, 0, 60))));
+
+    TestFramework::EndTest();
+}
+
+void TestSineSignal_VariedTimeOffset()
+{
+    TestFramework::BeginTest("TestSineSignal_VariedTimeOffset");
+
+    // Zero value offset, 15 second time offset, value range from 0 to 10, period 1 minute
+    SineSignal ss1(0, Time(0, 0, 15), 0, 10, Time(0, 1, 0));
+    TEST_ASSERT(IsWithinRange(10, .1, ss1.getVoltageAtTime(Time(0, 0, 0))));
+    TEST_ASSERT(IsWithinRange(5, .1, ss1.getVoltageAtTime(Time(0, 0, 15))));
+    TEST_ASSERT(IsWithinRange(0, .1, ss1.getVoltageAtTime(Time(0, 0, 30))));
+    TEST_ASSERT(IsWithinRange(5, .1, ss1.getVoltageAtTime(Time(0, 0, 45))));
+    TEST_ASSERT(IsWithinRange(10, .1, ss1.getVoltageAtTime(Time(0, 0, 60))));
+
+    TestFramework::EndTest();
+}
+
+void TestSineSignal_VariedAll()
+{
+    TestFramework::BeginTest("TestSineSignal_VariedAll");
+
+    // Positive value offset, 15 second time offset, value range from 0 to 10, period 1 minute
+    SineSignal ss1(13, Time(0, 0, 15), 0, 10, Time(0, 1, 0));
+    TEST_ASSERT(IsWithinRange(23, .1, ss1.getVoltageAtTime(Time(0, 0, 0))));
+    TEST_ASSERT(IsWithinRange(18, .1, ss1.getVoltageAtTime(Time(0, 0, 15))));
+    TEST_ASSERT(IsWithinRange(13, .1, ss1.getVoltageAtTime(Time(0, 0, 30))));
+    TEST_ASSERT(IsWithinRange(18, .1, ss1.getVoltageAtTime(Time(0, 0, 45))));
+    TEST_ASSERT(IsWithinRange(23, .1, ss1.getVoltageAtTime(Time(0, 0, 60))));
+
+    // Negative value offset, 15 second time offset, value range from 0 to 10, period 1 minute
+    SineSignal ss2(-13, Time(0, 0, 15), 0, 10, Time(0, 1, 0));
+    TEST_ASSERT(IsWithinRange(-3, .1, ss2.getVoltageAtTime(Time(0, 0, 0))));
+    TEST_ASSERT(IsWithinRange(-8, .1, ss2.getVoltageAtTime(Time(0, 0, 15))));
+    TEST_ASSERT(IsWithinRange(-13, .1, ss2.getVoltageAtTime(Time(0, 0, 30))));
+    TEST_ASSERT(IsWithinRange(-8, .1, ss2.getVoltageAtTime(Time(0, 0, 45))));
+    TEST_ASSERT(IsWithinRange(-3, .1, ss2.getVoltageAtTime(Time(0, 0, 60))));
+
+    TestFramework::EndTest();
+}
+
+void Project2UnitTest::TestSineSignal()
+{
+    TestSineSignal_Zeroed();
+    TestSineSignal_VariedValueOffset();
+    TestSineSignal_VariedTimeOffset();
+    TestSineSignal_VariedAll();
+}
+
 //void TestAngularSensor_takeReadingFromConstantSignal()
 //{
 //    TestFramework::BeginTest("TestAngularSensor_takeReadingFromConstantSignal");

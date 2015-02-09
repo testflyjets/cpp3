@@ -2,23 +2,25 @@
  * testflyjets@gmail.com
  * C/C++ Programming 3, Section ID 105730, Ray Mitchell III
  * February 6, 2015
- * SawtoothSignal.cpp
+ * SineSignal.cpp
  * Windows 8.1 Enterprise 64-bit
  * Microsoft Visual Studio 2013 Express for Desktop
  * 
- * Represents a sawtooth signal from a sensor.
+ * Represents a sine wave signal from a sensor.
  *
  */
 
 #include <cmath>
 
 #include "PeriodicSignal.h"
-#include "SawtoothSignal.h"
+#include "SineSignal.h"
 #include "Time.h"
 
 using Project2::Time;
 
-Project2::SawtoothSignal::SawtoothSignal(
+const double PI = 3.14159265358979323846;
+
+Project2::SineSignal::SineSignal(
    double voltageOffset,
    Time timeOffset,
    double minVoltage,
@@ -35,14 +37,13 @@ Project2::SawtoothSignal::SawtoothSignal(
 }
 
 double
-Project2::SawtoothSignal::getVoltageAtTime(Time t) const
+Project2::SineSignal::getVoltageAtTime(Time t) const
 {
    double voltageDelta = getMaxVoltage() - getMinVoltage();
 
    t += getTimeOffset();
    int periodInSeconds = getPeriod().getTotalTimeAsSeconds();
 
-   return getVoltageOffset() + getMinVoltage() +
-      std::fmod(t.getTotalTimeAsSeconds() * (voltageDelta) / periodInSeconds, 
-         voltageDelta);
+   return getVoltageOffset() + getMinVoltage() + (voltageDelta) / 2
+      + std::sin((t.getTotalTimeAsSeconds()) * 2 * PI / periodInSeconds) * (voltageDelta) / 2;
 }
