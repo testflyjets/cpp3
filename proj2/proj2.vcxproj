@@ -79,6 +79,7 @@
     <ClCompile Include="TestFramework.cpp" />
     <ClCompile Include="Time.cpp" />
     <ClCompile Include="UnitTest.cpp" />
+    <ClCompile Include="VibrationSensor.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="AngularSensor.h" />

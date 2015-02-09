@@ -591,55 +591,55 @@ void Project2UnitTest::TestTemperatureSensor()
     TestTemperatureSensor_takeReadingFromSineSignal();
 }
 
-//void TestVibrationSensor_takeReadingFromConstantSignal()
-//{
-//    TestFramework::BeginTest("TestVibrationSensor_takeReadingFromConstantSignal");
-//
-//    ConstantSignal sig(0, Time(0, 1, 0));
-//    VibrationSensor sensor("vibration sensor", sig);
-//    stringstream ss;
-//    DataRecorder dr(ss);
-//    sensor.takeReading(Time(0, 0, 30), dr);
-//    TEST_ASSERT("0h:0m:30s - vibration sensor - 0.00 Hertz (Hz)\n" == ss.str());
-//
-//    TestFramework::EndTest();
-//}
-//
-//void TestVibrationSensor_takeReadingFromSawtoothSignal()
-//{
-//    TestFramework::BeginTest("TestVibrationSensor_takeReadingFromSawtoothSignal");
-//
-//    SawtoothSignal sig(0, Time(0, 0, 0), 0, 10, Time(0, 1, 0));
-//    VibrationSensor sensor("vibration sensor", sig);
-//    stringstream ss;
-//    DataRecorder dr(ss);
-//    sensor.takeReading(Time(0, 0, 30), dr);
-//    TEST_ASSERT("0h:0m:30s - vibration sensor - 5.00 Hertz (Hz)\n" == ss.str());
-//
-//    TestFramework::EndTest();
-//}
-//
-//void TestVibrationSensor_takeReadingFromSineSignal()
-//{
-//    TestFramework::BeginTest("TestVibrationSensor_takeReadingFromSineSignal");
-//
-//    SineSignal sig(0, Time(0, 0, 0), 0, 10, Time(0, 1, 0));
-//    VibrationSensor sensor("vibration sensor", sig);
-//    stringstream ss;
-//    DataRecorder dr(ss);
-//    sensor.takeReading(Time(0, 0, 30), dr);
-//    TEST_ASSERT("0h:0m:30s - vibration sensor - 5.00 Hertz (Hz)\n" == ss.str());
-//
-//    TestFramework::EndTest();
-//}
-//
-//void Project2UnitTest::TestVibrationSensor()
-//{
-//    TestVibrationSensor_takeReadingFromConstantSignal();
-//    TestVibrationSensor_takeReadingFromSawtoothSignal();
-//    TestVibrationSensor_takeReadingFromSineSignal();
-//}
-//
+void TestVibrationSensor_takeReadingFromConstantSignal()
+{
+    TestFramework::BeginTest("TestVibrationSensor_takeReadingFromConstantSignal");
+
+    ConstantSignal sig(0, Time(0, 1, 0));
+    VibrationSensor sensor("vibration sensor", sig);
+    stringstream ss;
+    DataRecorder dr(ss);
+    sensor.takeReading(Time(0, 0, 30), dr);
+    TEST_ASSERT("0h:0m:30s - vibration sensor - 0.00 Hertz (Hz)\n" == ss.str());
+
+    TestFramework::EndTest();
+}
+
+void TestVibrationSensor_takeReadingFromSawtoothSignal()
+{
+    TestFramework::BeginTest("TestVibrationSensor_takeReadingFromSawtoothSignal");
+
+    SawtoothSignal sig(0, Time(0, 0, 0), 0, 10, Time(0, 1, 0));
+    VibrationSensor sensor("vibration sensor", sig);
+    stringstream ss;
+    DataRecorder dr(ss);
+    sensor.takeReading(Time(0, 0, 30), dr);
+    TEST_ASSERT("0h:0m:30s - vibration sensor - 5.00 Hertz (Hz)\n" == ss.str());
+
+    TestFramework::EndTest();
+}
+
+void TestVibrationSensor_takeReadingFromSineSignal()
+{
+    TestFramework::BeginTest("TestVibrationSensor_takeReadingFromSineSignal");
+
+    SineSignal sig(0, Time(0, 0, 0), 0, 10, Time(0, 1, 0));
+    VibrationSensor sensor("vibration sensor", sig);
+    stringstream ss;
+    DataRecorder dr(ss);
+    sensor.takeReading(Time(0, 0, 30), dr);
+    TEST_ASSERT("0h:0m:30s - vibration sensor - 5.00 Hertz (Hz)\n" == ss.str());
+
+    TestFramework::EndTest();
+}
+
+void Project2UnitTest::TestVibrationSensor()
+{
+    TestVibrationSensor_takeReadingFromConstantSignal();
+    TestVibrationSensor_takeReadingFromSawtoothSignal();
+    TestVibrationSensor_takeReadingFromSineSignal();
+}
+
 //void TestMonitoringSystem_takeReadingNoSensors()
 //{
 //    TestFramework::BeginTest("TestMonitoringSystem_takeReadingNoSensors");
