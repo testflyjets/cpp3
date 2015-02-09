@@ -640,177 +640,177 @@ void Project2UnitTest::TestVibrationSensor()
     TestVibrationSensor_takeReadingFromSineSignal();
 }
 
-//void TestMonitoringSystem_takeReadingNoSensors()
-//{
-//    TestFramework::BeginTest("TestMonitoringSystem_takeReadingNoSensors");
-//
-//    stringstream ss;
-//    MonitoringSystem ms(ss);
-//    ms.takeReading(Time(0, 0, 0));
-//    TEST_ASSERT("" == ss.str());
-//
-//    TestFramework::EndTest();
-//}
-//
-//void TestMonitoringSystem_takeReading1Sensors()
-//{
-//    TestFramework::BeginTest("TestMonitoringSystem_takeReading1Sensors");
-//
-//    stringstream ss;
-//    MonitoringSystem ms(ss);
-//    ConstantSignal sig(0, Time(0, 0, 0));
-//    AngularSensor sensor("Horizontal rotation", sig);
-//    ms.addSensor(&sensor);
-//    ms.takeReading(Time(0, 0, 0));
-//    TEST_ASSERT("0h:0m:0s - Horizontal rotation - 0.00 Radians\n" == ss.str());
-//
-//    TestFramework::EndTest();
-//}
-//
-//void TestMonitoringSystem_takeReading2Sensors()
-//{
-//    TestFramework::BeginTest("TestMonitoringSystem_takeReading2Sensors");
-//
-//    stringstream ss;
-//    MonitoringSystem ms(ss);
-//
-//    // Sensor 1
-//    SawtoothSignal sig1(0, Time(0, 0, 0), 0, 10, Time(0, 1, 0));
-//    AngularSensor sensor1("Horizontal rotation", sig1);
-//    ms.addSensor(&sensor1);
-//
-//    // Sensor 2
-//    SineSignal sig2(0, Time(0, 0, 0), 0, 10, Time(0, 1, 0));
-//    PressureSensor sensor2("Cabin pressure", sig2);
-//    ms.addSensor(&sensor2);
-//
-//    ms.takeReading(Time(0, 0, 0));
-//    string expected = string("0h:0m:0s - Horizontal rotation - 0.00 Radians\n")
-//        + "0h:0m:0s - Cabin pressure - 5.00 Pounds per square inch (PSI)\n";
-//    TEST_ASSERT(expected == ss.str());
-//
-//    TestFramework::EndTest();
-//}
-//
-//void TestMonitoringSystem_Take2Readings3Sensors()
-//{
-//    TestFramework::BeginTest("TestMonitoringSystem_Take2Readings3Sensors");
-//
-//    stringstream ss;
-//    MonitoringSystem ms(ss);
-//
-//    // Sensor 1
-//    SawtoothSignal sig1(0, Time(0, 0, 0), 0, 10, Time(0, 1, 0));
-//    AngularSensor sensor1("Horizontal rotation", sig1);
-//    ms.addSensor(&sensor1);
-//
-//    // Sensor 2
-//    SineSignal sig2(0, Time(0, 0, 0), 0, 10, Time(0, 1, 0));
-//    PressureSensor sensor2("Cabin pressure", sig2);
-//    ms.addSensor(&sensor2);
-//
-//    // Sensor 3
-//    ConstantSignal sig3(305.18, Time(0, 0, 0));
-//    TemperatureSensor sensor3("Core temperature", sig3);
-//    ms.addSensor(&sensor3);
-//
-//    // Reading 1
-//    Time t = Time(0, 0, 0);
-//    ms.takeReading(t);
-//    string expected = string("0h:0m:0s - Horizontal rotation - 0.00 Radians\n")
-//        + "0h:0m:0s - Cabin pressure - 5.00 Pounds per square inch (PSI)\n"
-//        + "0h:0m:0s - Core temperature - 305.18 Degrees Celsius\n";
-//    TEST_ASSERT(expected == ss.str());
-//
-//    // Reading 2
-//    t += Time(0, 0, 15);
-//    ms.takeReading(t);
-//    expected = string("0h:0m:0s - Horizontal rotation - 0.00 Radians\n")
-//        + "0h:0m:0s - Cabin pressure - 5.00 Pounds per square inch (PSI)\n"
-//        + "0h:0m:0s - Core temperature - 305.18 Degrees Celsius\n"
-//        + "0h:0m:15s - Horizontal rotation - 2.50 Radians\n"
-//        + "0h:0m:15s - Cabin pressure - 10.00 Pounds per square inch (PSI)\n"
-//        + "0h:0m:15s - Core temperature - 305.18 Degrees Celsius\n";
-//
-//    TestFramework::EndTest();
-//}
-//
-//void TestMonitoringSystem_Take5Readings5Sensors()
-//{
-//    TestFramework::BeginTest("TestMonitoringSystem_Take5Readings5Sensors");
-//
-//    stringstream ss;
-//    MonitoringSystem ms(ss);
-//
-//    // Sensor 1
-//    SawtoothSignal sig1(0, Time(0, 0, 0), 0, 10, Time(0, 1, 0));
-//    AngularSensor sensor1("Horizontal rotation", sig1);
-//    ms.addSensor(&sensor1);
-//
-//    // Sensor 2
-//    SineSignal sig2(0, Time(0, 0, 0), 0, 10, Time(0, 1, 0));
-//    PressureSensor sensor2("Cabin pressure", sig2);
-//    ms.addSensor(&sensor2);
-//
-//    // Sensor 3
-//    ConstantSignal sig3(305.18, Time(0, 0, 0));
-//    TemperatureSensor sensor3("Core temperature", sig3);
-//    ms.addSensor(&sensor3);
-//
-//    // Sensor 4
-//    ConstantSignal sig4(10, Time(0, 0, 0));
-//    VibrationSensor sensor4("Wing vibration", sig4);
-//    ms.addSensor(&sensor4);
-//
-//    // Sensor 5
-//    SawtoothSignal sig5(0, Time(0, 0, 15), -10, 0, Time(0, 1, 0));
-//    AngularSensor sensor5("Vertical rotation", sig5);
-//    ms.addSensor(&sensor5);
-//
-//    // Take 5 readings
-//    Time t = Time(0, 0, 0);
-//    for (int i = 0; i < 5; ++i)
-//    {
-//        ms.takeReading(t);
-//        t += Time(0, 0, 15);
-//    }
-//
-//    // Verify readings
-//    string expected = string("0h:0m:0s - Horizontal rotation - 0.00 Radians\n")
-//        + "0h:0m:0s - Cabin pressure - 5.00 Pounds per square inch (PSI)\n"
-//        + "0h:0m:0s - Core temperature - 305.18 Degrees Celsius\n"
-//        + "0h:0m:0s - Wing vibration - 10.00 Hertz (Hz)\n"
-//        + "0h:0m:0s - Vertical rotation - -7.50 Radians\n" 
-//        + "0h:0m:15s - Horizontal rotation - 2.50 Radians\n"
-//        + "0h:0m:15s - Cabin pressure - 10.00 Pounds per square inch (PSI)\n"
-//        + "0h:0m:15s - Core temperature - 305.18 Degrees Celsius\n"
-//        + "0h:0m:15s - Wing vibration - 10.00 Hertz (Hz)\n"
-//        + "0h:0m:15s - Vertical rotation - -5.00 Radians\n"
-//        + "0h:0m:30s - Horizontal rotation - 5.00 Radians\n"
-//        + "0h:0m:30s - Cabin pressure - 5.00 Pounds per square inch (PSI)\n"
-//        + "0h:0m:30s - Core temperature - 305.18 Degrees Celsius\n"
-//        + "0h:0m:30s - Wing vibration - 10.00 Hertz (Hz)\n"
-//        + "0h:0m:30s - Vertical rotation - -2.50 Radians\n"
-//        + "0h:0m:45s - Horizontal rotation - 7.50 Radians\n"
-//        + "0h:0m:45s - Cabin pressure - 0.00 Pounds per square inch (PSI)\n"
-//        + "0h:0m:45s - Core temperature - 305.18 Degrees Celsius\n"
-//        + "0h:0m:45s - Wing vibration - 10.00 Hertz (Hz)\n"
-//        + "0h:0m:45s - Vertical rotation - -10.00 Radians\n"
-//        + "0h:1m:0s - Horizontal rotation - 0.00 Radians\n"
-//        + "0h:1m:0s - Cabin pressure - 5.00 Pounds per square inch (PSI)\n"
-//        + "0h:1m:0s - Core temperature - 305.18 Degrees Celsius\n"
-//        + "0h:1m:0s - Wing vibration - 10.00 Hertz (Hz)\n"
-//        + "0h:1m:0s - Vertical rotation - -7.50 Radians\n";
-//    TEST_ASSERT(expected == ss.str());
-//
-//    TestFramework::EndTest();
-//}
-//
-//void Project2UnitTest::TestMonitoringSystem()
-//{
-//    TestMonitoringSystem_takeReadingNoSensors();
-//    TestMonitoringSystem_takeReading1Sensors();
-//    TestMonitoringSystem_takeReading2Sensors();
-//    TestMonitoringSystem_Take2Readings3Sensors();
-//    TestMonitoringSystem_Take5Readings5Sensors();
-//}
+void TestMonitoringSystem_takeReadingNoSensors()
+{
+    TestFramework::BeginTest("TestMonitoringSystem_takeReadingNoSensors");
+
+    stringstream ss;
+    MonitoringSystem ms(ss);
+    ms.takeReading(Time(0, 0, 0));
+    TEST_ASSERT("" == ss.str());
+
+    TestFramework::EndTest();
+}
+
+void TestMonitoringSystem_takeReading1Sensors()
+{
+    TestFramework::BeginTest("TestMonitoringSystem_takeReading1Sensors");
+
+    stringstream ss;
+    MonitoringSystem ms(ss);
+    ConstantSignal sig(0, Time(0, 0, 0));
+    AngularSensor sensor("Horizontal rotation", sig);
+    ms.addSensor(&sensor);
+    ms.takeReading(Time(0, 0, 0));
+    TEST_ASSERT("0h:0m:0s - Horizontal rotation - 0.00 Radians\n" == ss.str());
+
+    TestFramework::EndTest();
+}
+
+void TestMonitoringSystem_takeReading2Sensors()
+{
+    TestFramework::BeginTest("TestMonitoringSystem_takeReading2Sensors");
+
+    stringstream ss;
+    MonitoringSystem ms(ss);
+
+    // Sensor 1
+    SawtoothSignal sig1(0, Time(0, 0, 0), 0, 10, Time(0, 1, 0));
+    AngularSensor sensor1("Horizontal rotation", sig1);
+    ms.addSensor(&sensor1);
+
+    // Sensor 2
+    SineSignal sig2(0, Time(0, 0, 0), 0, 10, Time(0, 1, 0));
+    PressureSensor sensor2("Cabin pressure", sig2);
+    ms.addSensor(&sensor2);
+
+    ms.takeReading(Time(0, 0, 0));
+    string expected = string("0h:0m:0s - Horizontal rotation - 0.00 Radians\n")
+        + "0h:0m:0s - Cabin pressure - 5.00 Pounds per square inch (PSI)\n";
+    TEST_ASSERT(expected == ss.str());
+
+    TestFramework::EndTest();
+}
+
+void TestMonitoringSystem_Take2Readings3Sensors()
+{
+    TestFramework::BeginTest("TestMonitoringSystem_Take2Readings3Sensors");
+
+    stringstream ss;
+    MonitoringSystem ms(ss);
+
+    // Sensor 1
+    SawtoothSignal sig1(0, Time(0, 0, 0), 0, 10, Time(0, 1, 0));
+    AngularSensor sensor1("Horizontal rotation", sig1);
+    ms.addSensor(&sensor1);
+
+    // Sensor 2
+    SineSignal sig2(0, Time(0, 0, 0), 0, 10, Time(0, 1, 0));
+    PressureSensor sensor2("Cabin pressure", sig2);
+    ms.addSensor(&sensor2);
+
+    // Sensor 3
+    ConstantSignal sig3(305.18, Time(0, 0, 0));
+    TemperatureSensor sensor3("Core temperature", sig3);
+    ms.addSensor(&sensor3);
+
+    // Reading 1
+    Time t = Time(0, 0, 0);
+    ms.takeReading(t);
+    string expected = string("0h:0m:0s - Horizontal rotation - 0.00 Radians\n")
+        + "0h:0m:0s - Cabin pressure - 5.00 Pounds per square inch (PSI)\n"
+        + "0h:0m:0s - Core temperature - 305.18 Degrees Celsius\n";
+    TEST_ASSERT(expected == ss.str());
+
+    // Reading 2
+    t += Time(0, 0, 15);
+    ms.takeReading(t);
+    expected = string("0h:0m:0s - Horizontal rotation - 0.00 Radians\n")
+        + "0h:0m:0s - Cabin pressure - 5.00 Pounds per square inch (PSI)\n"
+        + "0h:0m:0s - Core temperature - 305.18 Degrees Celsius\n"
+        + "0h:0m:15s - Horizontal rotation - 2.50 Radians\n"
+        + "0h:0m:15s - Cabin pressure - 10.00 Pounds per square inch (PSI)\n"
+        + "0h:0m:15s - Core temperature - 305.18 Degrees Celsius\n";
+
+    TestFramework::EndTest();
+}
+
+void TestMonitoringSystem_Take5Readings5Sensors()
+{
+    TestFramework::BeginTest("TestMonitoringSystem_Take5Readings5Sensors");
+
+    stringstream ss;
+    MonitoringSystem ms(ss);
+
+    // Sensor 1
+    SawtoothSignal sig1(0, Time(0, 0, 0), 0, 10, Time(0, 1, 0));
+    AngularSensor sensor1("Horizontal rotation", sig1);
+    ms.addSensor(&sensor1);
+
+    // Sensor 2
+    SineSignal sig2(0, Time(0, 0, 0), 0, 10, Time(0, 1, 0));
+    PressureSensor sensor2("Cabin pressure", sig2);
+    ms.addSensor(&sensor2);
+
+    // Sensor 3
+    ConstantSignal sig3(305.18, Time(0, 0, 0));
+    TemperatureSensor sensor3("Core temperature", sig3);
+    ms.addSensor(&sensor3);
+
+    // Sensor 4
+    ConstantSignal sig4(10, Time(0, 0, 0));
+    VibrationSensor sensor4("Wing vibration", sig4);
+    ms.addSensor(&sensor4);
+
+    // Sensor 5
+    SawtoothSignal sig5(0, Time(0, 0, 15), -10, 0, Time(0, 1, 0));
+    AngularSensor sensor5("Vertical rotation", sig5);
+    ms.addSensor(&sensor5);
+
+    // Take 5 readings
+    Time t = Time(0, 0, 0);
+    for (int i = 0; i < 5; ++i)
+    {
+        ms.takeReading(t);
+        t += Time(0, 0, 15);
+    }
+
+    // Verify readings
+    string expected = string("0h:0m:0s - Horizontal rotation - 0.00 Radians\n")
+        + "0h:0m:0s - Cabin pressure - 5.00 Pounds per square inch (PSI)\n"
+        + "0h:0m:0s - Core temperature - 305.18 Degrees Celsius\n"
+        + "0h:0m:0s - Wing vibration - 10.00 Hertz (Hz)\n"
+        + "0h:0m:0s - Vertical rotation - -7.50 Radians\n" 
+        + "0h:0m:15s - Horizontal rotation - 2.50 Radians\n"
+        + "0h:0m:15s - Cabin pressure - 10.00 Pounds per square inch (PSI)\n"
+        + "0h:0m:15s - Core temperature - 305.18 Degrees Celsius\n"
+        + "0h:0m:15s - Wing vibration - 10.00 Hertz (Hz)\n"
+        + "0h:0m:15s - Vertical rotation - -5.00 Radians\n"
+        + "0h:0m:30s - Horizontal rotation - 5.00 Radians\n"
+        + "0h:0m:30s - Cabin pressure - 5.00 Pounds per square inch (PSI)\n"
+        + "0h:0m:30s - Core temperature - 305.18 Degrees Celsius\n"
+        + "0h:0m:30s - Wing vibration - 10.00 Hertz (Hz)\n"
+        + "0h:0m:30s - Vertical rotation - -2.50 Radians\n"
+        + "0h:0m:45s - Horizontal rotation - 7.50 Radians\n"
+        + "0h:0m:45s - Cabin pressure - 0.00 Pounds per square inch (PSI)\n"
+        + "0h:0m:45s - Core temperature - 305.18 Degrees Celsius\n"
+        + "0h:0m:45s - Wing vibration - 10.00 Hertz (Hz)\n"
+        + "0h:0m:45s - Vertical rotation - -10.00 Radians\n"
+        + "0h:1m:0s - Horizontal rotation - 0.00 Radians\n"
+        + "0h:1m:0s - Cabin pressure - 5.00 Pounds per square inch (PSI)\n"
+        + "0h:1m:0s - Core temperature - 305.18 Degrees Celsius\n"
+        + "0h:1m:0s - Wing vibration - 10.00 Hertz (Hz)\n"
+        + "0h:1m:0s - Vertical rotation - -7.50 Radians\n";
+    TEST_ASSERT(expected == ss.str());
+
+    TestFramework::EndTest();
+}
+
+void Project2UnitTest::TestMonitoringSystem()
+{
+    TestMonitoringSystem_takeReadingNoSensors();
+    TestMonitoringSystem_takeReading1Sensors();
+    TestMonitoringSystem_takeReading2Sensors();
+    TestMonitoringSystem_Take2Readings3Sensors();
+    TestMonitoringSystem_Take5Readings5Sensors();
+}

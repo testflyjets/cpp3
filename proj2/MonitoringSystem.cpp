@@ -37,5 +37,14 @@ Project2::MonitoringSystem::~MonitoringSystem()
 void
 Project2::MonitoringSystem::addSensor(Sensor *sensor)
 {
+   sensors.push_back(sensor);
+}
 
+void
+Project2::MonitoringSystem::takeReading(Time t)
+{
+   vector<Sensor*>::iterator sensorIter;
+   for (sensorIter = sensors.begin(); sensorIter != sensors.end(); sensorIter++) {
+      (*sensorIter)->takeReading(t, recorder);
+   }
 }

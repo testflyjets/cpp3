@@ -46,7 +46,7 @@ namespace Project2
       //      Nothing
       //---------------------------------------------------------------------
       MonitoringSystem(ostream &out);
-
+   
       ~MonitoringSystem();
 
       //---------------------------------------------------------------------
@@ -68,7 +68,7 @@ namespace Project2
 
    private:
       DataRecorder recorder;
-      vector<Sensor> sensors;
+      vector<Sensor*> sensors;
    };
 }
 
