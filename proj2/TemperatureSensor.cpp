@@ -27,5 +27,5 @@ Sensor(name, source)
 string
 Project2::TemperatureSensor::getUnits() const
 {
-   return "TemperatureSensor";
+   return "Degrees Celsius";
 }
