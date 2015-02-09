@@ -56,6 +56,7 @@ namespace Project2
       //      The value of the coin in cents.
       //---------------------------------------------------------------------
       virtual string getUnits() const;
+   };
 }
 
 #endif

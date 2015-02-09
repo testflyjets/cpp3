@@ -75,6 +75,7 @@
     <ClCompile Include="Sensor.cpp" />
     <ClCompile Include="Signal.cpp" />
     <ClCompile Include="SineSignal.cpp" />
+    <ClCompile Include="TemperatureSensor.cpp" />
     <ClCompile Include="TestFramework.cpp" />
     <ClCompile Include="Time.cpp" />
     <ClCompile Include="UnitTest.cpp" />

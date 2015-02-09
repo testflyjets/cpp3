@@ -493,104 +493,104 @@ void Project2UnitTest::TestAngularSensor()
     TestAngularSensor_takeReadingFromSineSignal();
 }
 
-//void TestPressureSensor_takeReadingFromConstantSignal()
-//{
-//    TestFramework::BeginTest("TestPressureSensor_takeReadingFromConstantSignal");
-//
-//    ConstantSignal sig(0, Time(0, 1, 0));
-//    PressureSensor sensor("pressure sensor", sig);
-//    stringstream ss;
-//    DataRecorder dr(ss);
-//    sensor.takeReading(Time(0, 0, 30), dr);
-//    TEST_ASSERT("0h:0m:30s - pressure sensor - 0.00 Pounds per square inch (PSI)\n" == ss.str());
-//
-//    TestFramework::EndTest();
-//}
-//
-//void TestPressureSensor_takeReadingFromSawtoothSignal()
-//{
-//    TestFramework::BeginTest("TestPressureSensor_takeReadingFromSawtoothSignal");
-//
-//    SawtoothSignal sig(0, Time(0, 0, 0), 0, 10, Time(0, 1, 0));
-//    PressureSensor sensor("pressure sensor", sig);
-//    stringstream ss;
-//    DataRecorder dr(ss);
-//    sensor.takeReading(Time(0, 0, 30), dr);
-//    TEST_ASSERT("0h:0m:30s - pressure sensor - 5.00 Pounds per square inch (PSI)\n" == ss.str());
-//
-//    TestFramework::EndTest();
-//}
-//
-//void TestPressureSensor_takeReadingFromSineSignal()
-//{
-//    TestFramework::BeginTest("TestPressureSensor_takeReadingFromSineSignal");
-//
-//    SineSignal sig(0, Time(0, 0, 0), 0, 10, Time(0, 1, 0));
-//    PressureSensor sensor("pressure sensor", sig);
-//    stringstream ss;
-//    DataRecorder dr(ss);
-//    sensor.takeReading(Time(0, 0, 30), dr);
-//    TEST_ASSERT("0h:0m:30s - pressure sensor - 5.00 Pounds per square inch (PSI)\n" == ss.str());
-//
-//    TestFramework::EndTest();
-//}
-//
-//void Project2UnitTest::TestPressureSensor()
-//{
-//    TestPressureSensor_takeReadingFromConstantSignal();
-//    TestPressureSensor_takeReadingFromSawtoothSignal();
-//    TestPressureSensor_takeReadingFromSineSignal();
-//}
-//
-//void TestTemperatureSensor_takeReadingFromConstantSignal()
-//{
-//    TestFramework::BeginTest("TestTemperatureSensor_takeReadingFromConstantSignal");
-//
-//    ConstantSignal sig(0, Time(0, 1, 0));
-//    TemperatureSensor sensor("temperature sensor", sig);
-//    stringstream ss;
-//    DataRecorder dr(ss);
-//    sensor.takeReading(Time(0, 0, 30), dr);
-//    TEST_ASSERT("0h:0m:30s - temperature sensor - 0.00 Degrees Celsius\n" == ss.str());
-//
-//    TestFramework::EndTest();
-//}
-//
-//void TestTemperatureSensor_takeReadingFromSawtoothSignal()
-//{
-//    TestFramework::BeginTest("TestTemperatureSensor_takeReadingFromSawtoothSignal");
-//
-//    SawtoothSignal sig(0, Time(0, 0, 0), 0, 10, Time(0, 1, 0));
-//    TemperatureSensor sensor("temperature sensor", sig);
-//    stringstream ss;
-//    DataRecorder dr(ss);
-//    sensor.takeReading(Time(0, 0, 30), dr);
-//    TEST_ASSERT("0h:0m:30s - temperature sensor - 5.00 Degrees Celsius\n" == ss.str());
-//
-//    TestFramework::EndTest();
-//}
-//
-//void TestTemperatureSensor_takeReadingFromSineSignal()
-//{
-//    TestFramework::BeginTest("TestTemperatureSensor_takeReadingFromSineSignal");
-//
-//    SineSignal sig(0, Time(0, 0, 0), 0, 10, Time(0, 1, 0));
-//    TemperatureSensor sensor("temperature sensor", sig);
-//    stringstream ss;
-//    DataRecorder dr(ss);
-//    sensor.takeReading(Time(0, 0, 30), dr);
-//    TEST_ASSERT("0h:0m:30s - temperature sensor - 5.00 Degrees Celsius\n" == ss.str());
-//
-//    TestFramework::EndTest();
-//}
-//
-//void Project2UnitTest::TestTemperatureSensor()
-//{
-//    TestTemperatureSensor_takeReadingFromConstantSignal();
-//    TestTemperatureSensor_takeReadingFromSawtoothSignal();
-//    TestTemperatureSensor_takeReadingFromSineSignal();
-//}
-//
+void TestPressureSensor_takeReadingFromConstantSignal()
+{
+    TestFramework::BeginTest("TestPressureSensor_takeReadingFromConstantSignal");
+
+    ConstantSignal sig(0, Time(0, 1, 0));
+    PressureSensor sensor("pressure sensor", sig);
+    stringstream ss;
+    DataRecorder dr(ss);
+    sensor.takeReading(Time(0, 0, 30), dr);
+    TEST_ASSERT("0h:0m:30s - pressure sensor - 0.00 Pounds per square inch (PSI)\n" == ss.str());
+
+    TestFramework::EndTest();
+}
+
+void TestPressureSensor_takeReadingFromSawtoothSignal()
+{
+    TestFramework::BeginTest("TestPressureSensor_takeReadingFromSawtoothSignal");
+
+    SawtoothSignal sig(0, Time(0, 0, 0), 0, 10, Time(0, 1, 0));
+    PressureSensor sensor("pressure sensor", sig);
+    stringstream ss;
+    DataRecorder dr(ss);
+    sensor.takeReading(Time(0, 0, 30), dr);
+    TEST_ASSERT("0h:0m:30s - pressure sensor - 5.00 Pounds per square inch (PSI)\n" == ss.str());
+
+    TestFramework::EndTest();
+}
+
+void TestPressureSensor_takeReadingFromSineSignal()
+{
+    TestFramework::BeginTest("TestPressureSensor_takeReadingFromSineSignal");
+
+    SineSignal sig(0, Time(0, 0, 0), 0, 10, Time(0, 1, 0));
+    PressureSensor sensor("pressure sensor", sig);
+    stringstream ss;
+    DataRecorder dr(ss);
+    sensor.takeReading(Time(0, 0, 30), dr);
+    TEST_ASSERT("0h:0m:30s - pressure sensor - 5.00 Pounds per square inch (PSI)\n" == ss.str());
+
+    TestFramework::EndTest();
+}
+
+void Project2UnitTest::TestPressureSensor()
+{
+    TestPressureSensor_takeReadingFromConstantSignal();
+    TestPressureSensor_takeReadingFromSawtoothSignal();
+    TestPressureSensor_takeReadingFromSineSignal();
+}
+
+void TestTemperatureSensor_takeReadingFromConstantSignal()
+{
+    TestFramework::BeginTest("TestTemperatureSensor_takeReadingFromConstantSignal");
+
+    ConstantSignal sig(0, Time(0, 1, 0));
+    TemperatureSensor sensor("temperature sensor", sig);
+    stringstream ss;
+    DataRecorder dr(ss);
+    sensor.takeReading(Time(0, 0, 30), dr);
+    TEST_ASSERT("0h:0m:30s - temperature sensor - 0.00 Degrees Celsius\n" == ss.str());
+
+    TestFramework::EndTest();
+}
+
+void TestTemperatureSensor_takeReadingFromSawtoothSignal()
+{
+    TestFramework::BeginTest("TestTemperatureSensor_takeReadingFromSawtoothSignal");
+
+    SawtoothSignal sig(0, Time(0, 0, 0), 0, 10, Time(0, 1, 0));
+    TemperatureSensor sensor("temperature sensor", sig);
+    stringstream ss;
+    DataRecorder dr(ss);
+    sensor.takeReading(Time(0, 0, 30), dr);
+    TEST_ASSERT("0h:0m:30s - temperature sensor - 5.00 Degrees Celsius\n" == ss.str());
+
+    TestFramework::EndTest();
+}
+
+void TestTemperatureSensor_takeReadingFromSineSignal()
+{
+    TestFramework::BeginTest("TestTemperatureSensor_takeReadingFromSineSignal");
+
+    SineSignal sig(0, Time(0, 0, 0), 0, 10, Time(0, 1, 0));
+    TemperatureSensor sensor("temperature sensor", sig);
+    stringstream ss;
+    DataRecorder dr(ss);
+    sensor.takeReading(Time(0, 0, 30), dr);
+    TEST_ASSERT("0h:0m:30s - temperature sensor - 5.00 Degrees Celsius\n" == ss.str());
+
+    TestFramework::EndTest();
+}
+
+void Project2UnitTest::TestTemperatureSensor()
+{
+    TestTemperatureSensor_takeReadingFromConstantSignal();
+    TestTemperatureSensor_takeReadingFromSawtoothSignal();
+    TestTemperatureSensor_takeReadingFromSineSignal();
+}
+
 //void TestVibrationSensor_takeReadingFromConstantSignal()
 //{
 //    TestFramework::BeginTest("TestVibrationSensor_takeReadingFromConstantSignal");
