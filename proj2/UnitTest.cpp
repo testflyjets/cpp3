@@ -444,55 +444,55 @@ void Project2UnitTest::TestSineSignal()
     TestSineSignal_VariedAll();
 }
 
-//void TestAngularSensor_takeReadingFromConstantSignal()
-//{
-//    TestFramework::BeginTest("TestAngularSensor_takeReadingFromConstantSignal");
-//
-//    ConstantSignal sig(0, Time(0, 1, 0));
-//    AngularSensor sensor("angular sensor", sig);
-//    stringstream ss;
-//    DataRecorder dr(ss);
-//    sensor.takeReading(Time(0, 0, 30), dr);
-//    TEST_ASSERT("0h:0m:30s - angular sensor - 0.00 Radians\n" == ss.str());
-//
-//    TestFramework::EndTest();
-//}
-//
-//void TestAngularSensor_takeReadingFromSawtoothSignal()
-//{
-//    TestFramework::BeginTest("TestAngularSensor_takeReadingFromSawtoothSignal");
-//
-//    SawtoothSignal sig(0, Time(0, 0, 0), 0, 10, Time(0, 1, 0));
-//    AngularSensor sensor("angular sensor", sig);
-//    stringstream ss;
-//    DataRecorder dr(ss);
-//    sensor.takeReading(Time(0, 0, 30), dr);
-//    TEST_ASSERT("0h:0m:30s - angular sensor - 5.00 Radians\n" == ss.str());
-//
-//    TestFramework::EndTest();
-//}
-//
-//void TestAngularSensor_takeReadingFromSineSignal()
-//{
-//    TestFramework::BeginTest("TestAngularSensor_takeReadingFromSineSignal");
-//
-//    SineSignal sig(0, Time(0, 0, 0), 0, 10, Time(0, 1, 0));
-//    AngularSensor sensor("angular sensor", sig);
-//    stringstream ss;
-//    DataRecorder dr(ss);
-//    sensor.takeReading(Time(0, 0, 30), dr);
-//    TEST_ASSERT("0h:0m:30s - angular sensor - 5.00 Radians\n" == ss.str());
-//
-//    TestFramework::EndTest();
-//}
-//
-//void Project2UnitTest::TestAngularSensor()
-//{
-//    TestAngularSensor_takeReadingFromConstantSignal();
-//    TestAngularSensor_takeReadingFromSawtoothSignal();
-//    TestAngularSensor_takeReadingFromSineSignal();
-//}
-//
+void TestAngularSensor_takeReadingFromConstantSignal()
+{
+    TestFramework::BeginTest("TestAngularSensor_takeReadingFromConstantSignal");
+
+    ConstantSignal sig(0, Time(0, 1, 0));
+    AngularSensor sensor("angular sensor", sig);
+    stringstream ss;
+    DataRecorder dr(ss);
+    sensor.takeReading(Time(0, 0, 30), dr);
+    TEST_ASSERT("0h:0m:30s - angular sensor - 0.00 Radians\n" == ss.str());
+
+    TestFramework::EndTest();
+}
+
+void TestAngularSensor_takeReadingFromSawtoothSignal()
+{
+    TestFramework::BeginTest("TestAngularSensor_takeReadingFromSawtoothSignal");
+
+    SawtoothSignal sig(0, Time(0, 0, 0), 0, 10, Time(0, 1, 0));
+    AngularSensor sensor("angular sensor", sig);
+    stringstream ss;
+    DataRecorder dr(ss);
+    sensor.takeReading(Time(0, 0, 30), dr);
+    TEST_ASSERT("0h:0m:30s - angular sensor - 5.00 Radians\n" == ss.str());
+
+    TestFramework::EndTest();
+}
+
+void TestAngularSensor_takeReadingFromSineSignal()
+{
+    TestFramework::BeginTest("TestAngularSensor_takeReadingFromSineSignal");
+
+    SineSignal sig(0, Time(0, 0, 0), 0, 10, Time(0, 1, 0));
+    AngularSensor sensor("angular sensor", sig);
+    stringstream ss;
+    DataRecorder dr(ss);
+    sensor.takeReading(Time(0, 0, 30), dr);
+    TEST_ASSERT("0h:0m:30s - angular sensor - 5.00 Radians\n" == ss.str());
+
+    TestFramework::EndTest();
+}
+
+void Project2UnitTest::TestAngularSensor()
+{
+    TestAngularSensor_takeReadingFromConstantSignal();
+    TestAngularSensor_takeReadingFromSawtoothSignal();
+    TestAngularSensor_takeReadingFromSineSignal();
+}
+
 //void TestPressureSensor_takeReadingFromConstantSignal()
 //{
 //    TestFramework::BeginTest("TestPressureSensor_takeReadingFromConstantSignal");

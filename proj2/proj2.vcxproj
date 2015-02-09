@@ -64,10 +64,13 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="AngularSensor.cpp" />
     <ClCompile Include="ConstantSignal.cpp" />
     <ClCompile Include="DataRecorder.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="MonitoringSystem.cpp" />
     <ClCompile Include="PeriodicSignal.cpp" />
+    <ClCompile Include="PressureSensor.cpp" />
     <ClCompile Include="SawtoothSignal.cpp" />
     <ClCompile Include="Sensor.cpp" />
     <ClCompile Include="Signal.cpp" />

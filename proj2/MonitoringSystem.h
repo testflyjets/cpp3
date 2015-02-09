@@ -9,6 +9,16 @@
 #ifndef PROJECT2_MONITORINGSYSTEM_H
 #define PROJECT2_MONITORINGSYSTEM_H
 
+#include <iostream>
+using std::ostream;
+
+#include <vector>
+using std::vector;
+
+#include "DataRecorder.h"
+#include "Sensor.h"
+#include "Time.h"
+
 namespace Project2
 {
    //=========================================================================
@@ -20,11 +30,6 @@ namespace Project2
    class MonitoringSystem
    {
    public:
-      //---------------------------------------------------------------------
-      // Types of coins.  The enumerator's numeric value is the coin's value
-      // in cents.
-      //---------------------------------------------------------------------
-
       //---------------------------------------------------------------------
       // SUMMARY
       //      Constructor.  Initializes the coin's denomination to the given
@@ -40,22 +45,9 @@ namespace Project2
       // RETURNS
       //      Nothing
       //---------------------------------------------------------------------
-      MonitoringSystem();
+      MonitoringSystem(ostream &out);
 
-      //---------------------------------------------------------------------
-      // SUMMARY
-      //      Returns the type of this coin.
-      //
-      // RESOURCES
-      //      None
-      //
-      // PARAMETERS
-      //      None
-      //
-      // RETURNS
-      //      The type of this coin.
-      //---------------------------------------------------------------------
-      //CoinType getDenomination() const;
+      ~MonitoringSystem();
 
       //---------------------------------------------------------------------
       // SUMMARY
@@ -70,10 +62,13 @@ namespace Project2
       // RETURNS
       //      The value of the coin in cents.
       //---------------------------------------------------------------------
-      unsigned getValueCents() const;
+      void addSensor(Sensor *sensor);
+
+      void takeReading(Time time);
 
    private:
-
+      DataRecorder recorder;
+      vector<Sensor> sensors;
    };
 }
 

@@ -48,6 +48,15 @@
     <ClCompile Include="SineSignal.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="AngularSensor.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="MonitoringSystem.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="PressureSensor.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="TestFramework.h">

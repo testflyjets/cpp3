@@ -18,7 +18,12 @@ Project2::Sensor::Sensor(string name, Signal &source) :
 name(name),
 source(source)
 {
+}
 
+void 
+Project2::Sensor::takeReading(Time t, DataRecorder &recorder) const
+{
+   recorder.log(t, getName(), getSource().getVoltageAtTime(t), getUnits());
 }
 
 string 

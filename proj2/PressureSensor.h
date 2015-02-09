@@ -9,6 +9,10 @@
 #ifndef PROJECT2_PRESSURESENSOR_H
 #define PROJECT2_PRESSURESENSOR_H
 
+#include<string>
+
+#include "Sensor.h"
+
 namespace Project2
 {
    //=========================================================================
@@ -17,14 +21,9 @@ namespace Project2
    // RESOURCES
    //      
    //=========================================================================
-   class PressureSensor
+   class PressureSensor : public Sensor
    {
    public:
-      //---------------------------------------------------------------------
-      // Types of coins.  The enumerator's numeric value is the coin's value
-      // in cents.
-      //---------------------------------------------------------------------
-
       //---------------------------------------------------------------------
       // SUMMARY
       //      Constructor.  Initializes the coin's denomination to the given
@@ -40,23 +39,9 @@ namespace Project2
       // RETURNS
       //      Nothing
       //---------------------------------------------------------------------
-      PressureSensor();
+      PressureSensor(std::string name, Signal &source);
 
-      //---------------------------------------------------------------------
-      // SUMMARY
-      //      Returns the type of this coin.
-      //
-      // RESOURCES
-      //      None
-      //
-      // PARAMETERS
-      //      None
-      //
-      // RETURNS
-      //      The type of this coin.
-      //---------------------------------------------------------------------
-      //CoinType getDenomination() const;
-
+   protected:
       //---------------------------------------------------------------------
       // SUMMARY
       //      Returns the value of the coin in cents.
@@ -70,10 +55,7 @@ namespace Project2
       // RETURNS
       //      The value of the coin in cents.
       //---------------------------------------------------------------------
-      unsigned getValueCents() const;
-
-   private:
-      
+      virtual string getUnits() const;
    };
 }
 
