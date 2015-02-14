@@ -9,10 +9,26 @@
  * A test program for a template class of arrays
  */
 
+#include <iostream>
+using std::cout;
+
 #include "Array.h"
 
 using ChrisMcCann::Array;
 
 int main() {
+   const int intSize = 5;
+   Array<int, intSize> intArray;
 
+   // set values
+   for (int i = 0; i < intArray.size(); ++i)
+   {
+      intArray[i] = i + 1;
+   }
+
+   // output values
+   for (int i = 0; i < intArray.size(); ++i)
+   {
+      cout << intArray[i] << "\n";
+   }
 }

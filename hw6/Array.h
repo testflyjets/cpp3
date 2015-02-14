@@ -15,11 +15,36 @@
 
 namespace ChrisMcCann
 {
-   template <int SIZE, typename ElemType>
+   template <typename ElemType, int SIZE>
    class Array
    {
    public:
-      Array();
+      Array()
+      {
+         
+      }
+
+      //Array(Array<ElemType, SIZE> source)
+      //{
+
+      //}
+
+      // subscript operator (l-value version)
+      ElemType &operator[](int index)
+      {
+         return elements[index];
+      }
+
+      // subscript operator (r-value version)
+      ElemType &operator[](int index) const
+      {
+         return elements[index];
+      }
+
+      int size()
+      {
+         return SIZE;
+      }
 
    private:
       ElemType elements[SIZE];
