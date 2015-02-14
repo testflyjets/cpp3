@@ -7,7 +7,6 @@
  * Microsoft Visual Studio 2013 Express for Desktop
  * 
  * A test program for a class hierarchy of shapes
- *
  */
 
 #include "Shapes.h"
@@ -21,10 +20,11 @@ using ChrisMcCann::Cube;
 const int SHAPE_COUNT = 4;
 
 int main() {
-   Shape *shapes[] = {new Circle(2), new Square(3), new Sphere(4), new Cube(5)};
-   
-   for (Shape *shape = *shapes; shape < *shapes + sizeof(shapes); shape++)
+   Shape *shapes[SHAPE_COUNT] = {new Circle(2), new Square(3), new Sphere(4), new Cube(5)};
+
+   for (Shape **shape = shapes; shape < shapes + SHAPE_COUNT; shape++)
    {
-      shape->display();
+      (*shape)->display();
+      delete (*shape);
    }
 }

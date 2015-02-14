@@ -6,18 +6,25 @@
  * Windows 8.1 Enterprise 64-bit
  * Microsoft Visual Studio 2013 Express for Desktop
  * 
- * A shape class hierarchy implementation
+ * An implementation of a shape class hierarchy
  *
  */
+#include <cmath>
+using std::pow;
+
 #include <iostream>
 using std::cout;
 
 #include "Shapes.h"
 
-using ChrisMcCann::Circle;
+using ChrisMcCann::PI;
 
 ChrisMcCann::Circle::Circle(double radius) :
 radius(radius)
+{
+}
+
+ChrisMcCann::Circle::~Circle()
 {
 }
 
@@ -28,8 +35,18 @@ ChrisMcCann::Circle::display() const
       << " has area " << getArea() << "\n";
 }
 
+double
+ChrisMcCann::Circle::getArea() const
+{
+   return ChrisMcCann::PI * std::pow(radius, 2);
+}
+
 ChrisMcCann::Square::Square(double lengthOfSide) :
 lengthOfSide(lengthOfSide)
+{
+}
+
+ChrisMcCann::Square::~Square()
 {
 }
 
@@ -40,8 +57,18 @@ ChrisMcCann::Square::display() const
       << " has area " << getArea() << "\n";
 }
 
+double
+ChrisMcCann::Square::getArea() const
+{
+   return std::pow(lengthOfSide, 2);
+}
+
 ChrisMcCann::Sphere::Sphere(double radius) :
 radius(radius)
+{
+}
+
+ChrisMcCann::Sphere::~Sphere()
 {
 }
 
@@ -53,8 +80,24 @@ ChrisMcCann::Sphere::display() const
       << " and volume " << getVolume() << "\n";
 }
 
+double 
+ChrisMcCann::Sphere::getSurfaceArea() const
+{
+   return 4.0 * PI * std::pow(radius, 2);
+}
+
+double 
+ChrisMcCann::Sphere::getVolume() const
+{
+   return (4.0/3.0) * PI * std::pow(radius, 3);
+}
+
 ChrisMcCann::Cube::Cube(double lengthOfSide) :
 lengthOfSide(lengthOfSide)
+{
+}
+
+ChrisMcCann::Cube::~Cube()
 {
 }
 
@@ -64,4 +107,16 @@ ChrisMcCann::Cube::display() const
    cout << "Cube with length of side " << lengthOfSide
       << " has surface area " << getSurfaceArea() 
       << " and volume " << getVolume() << "\n";
+}
+
+double
+ChrisMcCann::Cube::getSurfaceArea() const
+{
+   return 6 * std::pow(lengthOfSide, 2);
+}
+
+double 
+ChrisMcCann::Cube::getVolume() const
+{
+   return std::pow(lengthOfSide, 3);
 }
