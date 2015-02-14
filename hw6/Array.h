@@ -27,10 +27,33 @@ namespace ChrisMcCann
          
       }
 
-      //Array(Array<ElemType, SIZE> source)
-      //{
+      Array(const Array &source)
+      {
+         for (int i = 0; i <= SIZE; ++i)
+         {
+            this->elements[i] = source[i];
+         }
+      }
 
-      //}
+      bool operator==(const Array &other) const
+      {
+         bool equal = true;
+         for (int i = 0; i < SIZE; ++i)
+         {
+            if (elements[i] != other[i])
+            {
+               equal = false;
+               break;
+            }
+         }
+
+         return equal;
+      }
+
+      bool operator!=(const Array &other) const
+      {
+         return !((*this) == other);
+      }
 
       // subscript operator (l-value version)
       ElemType &operator[](int index)
@@ -43,7 +66,7 @@ namespace ChrisMcCann
       }
 
       // subscript operator (r-value version)
-      ElemType &operator[](int index) const
+      ElemType operator[](int index) const
       {
          if (index < 0 || index >= SIZE)
          {
@@ -60,6 +83,7 @@ namespace ChrisMcCann
    private:
       ElemType elements[SIZE];
    };
+
 }
 
 #endif

@@ -23,8 +23,7 @@ using ChrisMcCann::Array;
 
 TEST(DefaultConstructor)
 {
-   const int intSize = 5;
-   Array<int, intSize> intArray;
+   Array<int, 5> intArray;
 
    // set values
    for (int i = 0; i < intArray.size(); ++i)
@@ -41,7 +40,45 @@ TEST(DefaultConstructor)
 
 TEST(CopyConstructor)
 {
+   Array<int, 4> srcArray;
 
+   // set values
+   for (int i = 0; i < srcArray.size(); ++i)
+   {
+      srcArray[i] = i + 1;
+   }
+
+   // create a const copy
+   //const Array<int, 4> constCopy(srcArray);
+}
+
+TEST(ArrayEquality)
+{
+   Array<int, 4> op1, op2;
+
+   // set values
+   for (int i = 0; i < op1.size(); ++i)
+   {
+      op1[i] = i + 1;
+      op2[i] = op1[i];
+   }
+
+   CHECK(op1 == op2);
+}
+
+TEST(ArrayInequality)
+{
+   Array<int, 4> op1, op2;
+
+   // set values
+   for (int i = 0; i < op1.size(); ++i)
+   {
+      op1[i] = i + 1;
+      op2[i] = op1[i];
+   }
+   op2[3] = 42;
+
+   CHECK(op1 != op2);
 }
 
 TEST(AccessSubscriptLessThanZero)
