@@ -13,6 +13,9 @@
  *
  */
 
+#include <stdexcept>
+using std::invalid_argument;
+
 namespace ChrisMcCann
 {
    template <typename ElemType, int SIZE>
@@ -32,12 +35,20 @@ namespace ChrisMcCann
       // subscript operator (l-value version)
       ElemType &operator[](int index)
       {
+         if (index < 0 || index >= SIZE)
+         {
+            throw invalid_argument("subscript index out of range");
+         }
          return elements[index];
       }
 
       // subscript operator (r-value version)
       ElemType &operator[](int index) const
       {
+         if (index < 0 || index >= SIZE)
+         {
+            throw invalid_argument("subscript index out of range");
+         }
          return elements[index];
       }
 

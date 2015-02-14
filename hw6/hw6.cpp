@@ -12,11 +12,17 @@
 #include <iostream>
 using std::cout;
 
+#include <stdexcept>
+using std::invalid_argument;
+
+#include "UnitTest++.h"
+
 #include "Array.h"
 
 using ChrisMcCann::Array;
 
-int main() {
+TEST(DefaultConstructor)
+{
    const int intSize = 5;
    Array<int, intSize> intArray;
 
@@ -31,4 +37,28 @@ int main() {
    {
       cout << intArray[i] << "\n";
    }
+}
+
+TEST(CopyConstructor)
+{
+
+}
+
+TEST(AccessSubscriptLessThanZero)
+{
+   Array<int, 3> intArray;
+
+   CHECK_THROW(intArray[-1], std::invalid_argument);
+}
+
+TEST(AccessSubscriptGreaterThanOrEqualToSize)
+{
+   Array<int, 3> intArray;
+
+   CHECK_THROW(intArray[3], std::invalid_argument);
+   CHECK_THROW(intArray[4], std::invalid_argument);
+}
+
+int main() {
+   return UnitTest::RunAllTests();
 }
