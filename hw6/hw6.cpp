@@ -35,6 +35,7 @@ TEST(DefaultConstructor)
    for (int i = 0; i < intArray.size(); ++i)
    {
       cout << intArray[i] << "\n";
+      CHECK_EQUAL(intArray[i], i + 1);
    }
 }
 
@@ -49,7 +50,32 @@ TEST(CopyConstructor)
    }
 
    // create a const copy
-   //const Array<int, 4> constCopy(srcArray);
+   const Array<int, 4> constCopy(srcArray);
+
+   for (int i = 0; i < srcArray.size(); ++i)
+   {
+      CHECK_EQUAL(srcArray[i], constCopy[i]);
+   }
+}
+
+TEST(CopyAssignment)
+{
+   Array<int, 4> srcArray;
+
+   // set values
+   for (int i = 0; i < srcArray.size(); ++i)
+   {
+      srcArray[i] = i * 2;
+   }
+
+   Array<int, 4> copyAssignArray = srcArray;
+
+   // check the values have been copied correctly
+   for (int i = 0; i < copyAssignArray.size(); ++i)
+   {
+      CHECK_EQUAL(copyAssignArray[i], i * 2);
+   }
+
 }
 
 TEST(ArrayEquality)
@@ -94,6 +120,28 @@ TEST(AccessSubscriptGreaterThanOrEqualToSize)
 
    CHECK_THROW(intArray[3], std::invalid_argument);
    CHECK_THROW(intArray[4], std::invalid_argument);
+}
+
+TEST(AccessInvalidRvalueSubscript)
+{
+   const int size = 4;
+   Array<int, size> srcArray;
+
+   // set values
+   for (int i = 0; i < srcArray.size(); ++i)
+   {
+      srcArray[i] = i + 1;
+   }
+
+   // create a const copy
+   const Array<int, 4> constCopy(srcArray);
+
+   // access subscript < 0
+   CHECK_THROW(constCopy[-1], std::invalid_argument);
+
+   // access subscripts >= array size
+   CHECK_THROW(constCopy[size], std::invalid_argument);
+   CHECK_THROW(constCopy[size + 1], std::invalid_argument);
 }
 
 int main() {

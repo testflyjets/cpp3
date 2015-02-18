@@ -22,19 +22,36 @@ namespace ChrisMcCann
    class Array
    {
    public:
+      // default constructor
       Array()
       {
          
       }
-
+      
+      // copy constructor
       Array(const Array &source)
       {
-         for (int i = 0; i <= SIZE; ++i)
+         for (int i = 0; i < SIZE; ++i)
          {
             this->elements[i] = source[i];
          }
       }
 
+      // copy assignment operator
+      Array &operator=(const Array &source)
+      {
+         if (this == source)
+            return *this;
+
+         for (int i = 0; i < SIZE; ++i)
+         {
+            this->elements[i] = source[i];
+         }
+
+         return *this;
+      }
+
+      // equality operator
       bool operator==(const Array &other) const
       {
          bool equal = true;
@@ -50,6 +67,7 @@ namespace ChrisMcCann
          return equal;
       }
 
+      // inequality operator
       bool operator!=(const Array &other) const
       {
          return !((*this) == other);
@@ -60,7 +78,7 @@ namespace ChrisMcCann
       {
          if (index < 0 || index >= SIZE)
          {
-            throw invalid_argument("subscript index out of range");
+            throw invalid_argument("subscript lvalue index out of range");
          }
          return elements[index];
       }
@@ -70,17 +88,20 @@ namespace ChrisMcCann
       {
          if (index < 0 || index >= SIZE)
          {
-            throw invalid_argument("subscript index out of range");
+            throw invalid_argument("subscript rvalue index out of range");
          }
          return elements[index];
       }
 
+      // convenience to allow external clients to 
+      // access array size
       int size()
       {
          return SIZE;
       }
 
    private:
+      // array of elements of ElemType
       ElemType elements[SIZE];
    };
 
