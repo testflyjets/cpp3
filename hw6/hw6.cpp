@@ -31,9 +31,10 @@ TEST(DefaultConstructor)
       intArray[i] = i + 1;
    }
 
-   // output values
+   // check the values have been properly initialized
    for (int i = 0; i < intArray.size(); ++i)
    {
+      // output the values
       cout << intArray[i] << "\n";
       CHECK_EQUAL(intArray[i], i + 1);
    }
