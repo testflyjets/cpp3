@@ -21,7 +21,9 @@ using std::vector;
 using ChrisMcCann::StringUtility;
 
 string 
-StringUtility::join(const vector<string> &strings, char delimiter)
+StringUtility::join(
+   const vector<string> &strings, 
+   char delimiter)
 {
    static string joined;
    size_t size = strings.size();
@@ -37,7 +39,8 @@ StringUtility::join(const vector<string> &strings, char delimiter)
 }
 
 vector<string> 
-StringUtility::reverse(const vector<string> &strings)
+StringUtility::reverse(
+   const vector<string> &strings)
 {
    static vector<string> reversed;
 
@@ -57,7 +60,9 @@ StringUtility::reverse(const vector<string> &strings)
 }
 
 vector<string> 
-StringUtility::combine(const vector<string> &left, const vector<string> &right)
+StringUtility::combine(
+   const vector<string> &left, 
+   const vector<string> &right)
 {
    static vector<string> combined;
 
@@ -73,7 +78,9 @@ StringUtility::combine(const vector<string> &left, const vector<string> &right)
 }
 
 vector<string> 
-StringUtility::leftPad(const vector<string> &strings, char pad)
+StringUtility::leftPad(
+   const vector<string> &strings, 
+   char pad)
 {
    static vector<string> leftPadded;
    size_t longest = 0;

@@ -26,23 +26,21 @@ using ChrisMcCann::StringUtility;
 
 const vector<string> testVector = { "The", "quick", "brown", "fox", "jumps", "over", "the", "lazy", "dog" };
 
-StringUtility utility;
-
 TEST(JoinStrings)
 {
    string expected = "The,quick,brown,fox,jumps,over,the,lazy,dog";
    
-   string actual = utility.join(testVector, ',');
+   string actual = StringUtility::join(testVector, ',');
    cout << "Joined vector:\n" << actual << "\n\n";
 
-   CHECK_EQUAL(expected, actual);
+   CHECK(expected == actual);
 }
 
 TEST(ReverseStringVectors)
 {
    vector<string> expected = { "god", "yzal", "eht", "revo", "spmuj", "xof", "nworb", "kciuq", "ehT" };
    
-   vector<string> reversed = utility.reverse(testVector);
+   vector<string> reversed = StringUtility::reverse(testVector);
 
    cout << "Reversed vector:\n";
    for (size_t i = 0; i < reversed.size(); ++i)
@@ -50,6 +48,8 @@ TEST(ReverseStringVectors)
       cout << reversed[i] << " ";
    }
    cout << "\n\n";
+
+   CHECK(expected == reversed);
 }
 
 TEST(CombineStringVectors)
@@ -57,7 +57,9 @@ TEST(CombineStringVectors)
    vector<string> left = {"Mr.", "Mrs."};
    vector<string> right = {"Jones", "Smith", "Williams"};
 
-   vector<string> combined = utility.combine(left, right);
+   vector<string> expected = {"Mr.Jones", "Mr.Smith", "Mr.Williams", "Mrs.Jones", "Mrs.Smith", "Mrs.Williams"};
+
+   vector<string> combined = StringUtility::combine(left, right);
 
    cout << "Combined vector:\n";
    for (size_t i = 0; i < combined.size(); ++i)
@@ -65,11 +67,15 @@ TEST(CombineStringVectors)
       cout << combined[i] << " ";
    }
    cout << "\n\n";
+
+   CHECK(expected == combined);
 }
 
 TEST(LeftPadStringVector)
 {
-   vector<string> padded = utility.leftPad(testVector, '*');
+   vector<string> padded = StringUtility::leftPad(testVector, '*');
+   vector<string> expected = {"**The", "quick", "brown", "**fox", 
+      "jumps", "*over", "**the", "*lazy", "**dog"};
 
    cout << "Left-padded vector:\n";
    for (size_t i = 0; i < padded.size(); ++i)
@@ -77,6 +83,8 @@ TEST(LeftPadStringVector)
       cout << padded[i] << " ";
    }
    cout << "\n\n";
+
+   CHECK(expected == padded);
 }
 
 int main() {
