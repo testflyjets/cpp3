@@ -19,8 +19,10 @@ namespace Project2
 {
    //=========================================================================
    // SUMMARY
+   //    An abstract class that represents a sensor on an aircraft.
    //
    // RESOURCES
+   //    None.
    //      
    //=========================================================================
    class Sensor
@@ -28,27 +30,46 @@ namespace Project2
    public:
       //---------------------------------------------------------------------
       // SUMMARY
-      //      Constructor.  Initializes the coin's denomination to the given
-      //      type.
+      //      Constructor.  Initializes the sensor's name and source signal
+      //      to the given values.
       //
       // RESOURCES
       //      None
       //
       // PARAMETERS
-      //      denomination
-      //          The coin's denomination.
+      //      name
+      //          The sensor's name
+      //      source
+      //          The signal that the sensor reads
       //
       // RETURNS
       //      Nothing
       //---------------------------------------------------------------------
       Sensor(string name, Signal &source);
 
+      //---------------------------------------------------------------------
+      // SUMMARY
+      //      Takes a reading from the sensor and records it using
+      //      the data recorder.
+      //
+      // RESOURCES
+      //      None
+      //
+      // PARAMETERS
+      //      t
+      //          The time the sensor reading was taken.
+      //      recorder
+      //          The DataRecorder instance that records the sensor reading.
+      //
+      // RETURNS
+      //      Nothing
+      //---------------------------------------------------------------------
       void takeReading(Time t, DataRecorder &recorder) const;
 
    protected:
       //---------------------------------------------------------------------
       // SUMMARY
-      //      Returns the type of this coin.
+      //      Returns the sensor's units
       //
       // RESOURCES
       //      None
@@ -57,7 +78,7 @@ namespace Project2
       //      None
       //
       // RETURNS
-      //      The type of this coin.
+      //      Units of the returned sensor reading
       //---------------------------------------------------------------------
       virtual string getUnits() const = 0;
 
@@ -78,7 +99,7 @@ namespace Project2
 
       //---------------------------------------------------------------------
       // SUMMARY
-      //      Returns the value of the coin in cents.
+      //      Returns the sensor's name
       //
       // RESOURCES
       //      None
@@ -87,7 +108,7 @@ namespace Project2
       //      None
       //
       // RETURNS
-      //      The value of the coin in cents.
+      //      The name of the sensor.
       //---------------------------------------------------------------------
       string getName() const;
 

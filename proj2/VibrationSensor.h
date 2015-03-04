@@ -17,44 +17,20 @@ namespace Project2
 {
    //=========================================================================
    // SUMMARY
+   //       A vibration sensor measures the physical vibration of an object
+   //       such as a wing, an equipment rack, or an engine.
+   //
+   //       It converts a signal voltage into a vibration measured in Hertz.
    //
    // RESOURCES
-   //      
+   //       The vibration sensor owns no resources.
    //=========================================================================
    class VibrationSensor : public Sensor
    {
    public:
-      //---------------------------------------------------------------------
-      // SUMMARY
-      //      Constructor.  Initializes the coin's denomination to the given
-      //      type.
-      //
-      // RESOURCES
-      //      None
-      //
-      // PARAMETERS
-      //      denomination
-      //          The coin's denomination.
-      //
-      // RETURNS
-      //      Nothing
-      //---------------------------------------------------------------------
       VibrationSensor(std::string name, Signal &source);
 
    protected:
-      //---------------------------------------------------------------------
-      // SUMMARY
-      //      Returns the value of the coin in cents.
-      //
-      // RESOURCES
-      //      None
-      //
-      // PARAMETERS
-      //      None
-      //
-      // RETURNS
-      //      The value of the coin in cents.
-      //---------------------------------------------------------------------
       virtual string getUnits() const;
    };
 }

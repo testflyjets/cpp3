@@ -17,44 +17,20 @@ namespace Project2
 {
    //=========================================================================
    // SUMMARY
+   //       A pressure sensor measures the pressure inside an object such as 
+   //       a pump, tank, or tubing.
+   //
+   //       It converts a signal voltage into a pressure.
    //
    // RESOURCES
-   //      
+   //       The angular sensor owns no resources.
    //=========================================================================
    class PressureSensor : public Sensor
    {
    public:
-      //---------------------------------------------------------------------
-      // SUMMARY
-      //      Constructor.  Initializes the coin's denomination to the given
-      //      type.
-      //
-      // RESOURCES
-      //      None
-      //
-      // PARAMETERS
-      //      denomination
-      //          The coin's denomination.
-      //
-      // RETURNS
-      //      Nothing
-      //---------------------------------------------------------------------
       PressureSensor(std::string name, Signal &source);
 
    protected:
-      //---------------------------------------------------------------------
-      // SUMMARY
-      //      Returns the value of the coin in cents.
-      //
-      // RESOURCES
-      //      None
-      //
-      // PARAMETERS
-      //      None
-      //
-      // RETURNS
-      //      The value of the coin in cents.
-      //---------------------------------------------------------------------
       virtual string getUnits() const;
    };
 }

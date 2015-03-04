@@ -21,24 +21,24 @@ namespace Project2
 {
    //=========================================================================
    // SUMMARY
-   //
+   //    Logs readings from sensors.
    // RESOURCES
-   //      
+   //    None.
    //=========================================================================
    class DataRecorder
    {
    public:
       //---------------------------------------------------------------------
       // SUMMARY
-      //      Constructor.  Initializes the coin's denomination to the given
-      //      type.
+      //      Constructor.  Initializes the output stream to which the data
+      //      recorder writes its readings.
       //
       // RESOURCES
       //      None
       //
       // PARAMETERS
-      //      denomination
-      //          The coin's denomination.
+      //      out
+      //          The data recorder's output stream.
       //
       // RETURNS
       //      Nothing
@@ -47,18 +47,29 @@ namespace Project2
 
       //---------------------------------------------------------------------
       // SUMMARY
-      //      Returns the type of this coin.
+      //      Logs a reading from a sensor at the given time with the given
+      //      voltage and units.
       //
       // RESOURCES
       //      None
       //
       // PARAMETERS
-      //      None
+      //      timestamp
+      //          The time at which the sensor took its reading.
+      //      sensorName
+      //          The name of the sensor whose reading is being recorded.
+      //      sensorVoltage
+      //          The voltage read by the sensor.
+      //      sensorUnits
+      //          The units of the sensor's reading.
       //
       // RETURNS
-      //      The type of this coin.
+      //      Nothing.
       //---------------------------------------------------------------------
-      void log(Time timestamp, string sensorName, double sensorVoltage, string sensorUnits);
+      void log(Time timestamp,
+         string sensorName,
+         double sensorVoltage,
+         string sensorUnits);
 
    private:
       ostream &out;

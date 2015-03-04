@@ -13,30 +13,21 @@ namespace Project2
 {
    //=========================================================================
    // SUMMARY
+   //    SineSignal is a concrete implementation of PeriodicSignal that 
+   //    varies between a minimum and maximum value according to the sine 
+   //    function.
    //
    // RESOURCES
-   //      
+   //      None.
    //=========================================================================
    class SineSignal : public PeriodicSignal
    {
    public:
-      //---------------------------------------------------------------------
-      // SUMMARY
-      //      Constructor.  Initializes the coin's denomination to the given
-      //      type.
-      //
-      // RESOURCES
-      //      None
-      //
-      // PARAMETERS
-      //      denomination
-      //          The coin's denomination.
-      //
-      // RETURNS
-      //      Nothing
-      //---------------------------------------------------------------------
-      SineSignal(double voltageOffset, Time timeOffset, 
-         double minVoltage, double maxVoltage, Time period);
+      SineSignal(double voltageOffset, 
+         Time timeOffset, 
+         double minVoltage, 
+         double maxVoltage, 
+         Time period);
 
       virtual double getVoltageAtTime(Time t) const;
    };

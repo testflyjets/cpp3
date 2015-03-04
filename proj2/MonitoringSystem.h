@@ -23,35 +23,36 @@ namespace Project2
 {
    //=========================================================================
    // SUMMARY
+   //    The MonitoringSystem tracks and logs changes to various
+   //    phenomena present in an airplane. Examples of such phenomena are wing 
+   //    vibration, engine temperature, and cabin pressure.
    //
    // RESOURCES
-   //      
+   //    None
    //=========================================================================
    class MonitoringSystem
    {
    public:
       //---------------------------------------------------------------------
       // SUMMARY
-      //      Constructor.  Initializes the coin's denomination to the given
-      //      type.
+      //      Constructor.  Initializes the output stream to which the 
+      //      monitoring system writes its sensor readings.
       //
       // RESOURCES
       //      None
       //
       // PARAMETERS
-      //      denomination
-      //          The coin's denomination.
+      //      out
+      //          The ostream to which the sensor readings are written.
       //
       // RETURNS
       //      Nothing
       //---------------------------------------------------------------------
       MonitoringSystem(ostream &out);
-   
-      ~MonitoringSystem();
 
       //---------------------------------------------------------------------
       // SUMMARY
-      //      Returns the value of the coin in cents.
+      //      Destructor.  Destroys the object and any owned resources.
       //
       // RESOURCES
       //      None
@@ -60,10 +61,41 @@ namespace Project2
       //      None
       //
       // RETURNS
-      //      The value of the coin in cents.
+      //      Nothing
+      //---------------------------------------------------------------------
+      ~MonitoringSystem();
+
+      //---------------------------------------------------------------------
+      // SUMMARY
+      //      Adds a sensor to the monitoring system.
+      //
+      // RESOURCES
+      //      None
+      //
+      // PARAMETERS
+      //      sensor
+      //          A pointer to the sensor to add.
+      //
+      // RETURNS
+      //      Nothing
       //---------------------------------------------------------------------
       void addSensor(Sensor *sensor);
 
+      //---------------------------------------------------------------------
+      // SUMMARY
+      //      Takes a reading from all of the monitoring system's sensors
+      //      at the given time.
+      //
+      // RESOURCES
+      //      None
+      //
+      // PARAMETERS
+      //      time
+      //          The time at which all sensor readings are taken.
+      //
+      // RETURNS
+      //      Nothing
+      //---------------------------------------------------------------------
       void takeReading(Time time);
 
    private:

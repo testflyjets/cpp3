@@ -8,20 +8,41 @@
  * 
  * A test program for a Person class
  */
+#include <fstream>
+using std::ifstream;
+using std::ios;
 
 #include <iostream>
+using std::cerr;
 using std::cout;
 using std::ostringstream;
+
+#include <sstream>
+using std::stringstream;
 
 #include "UnitTest++.h"
 
 #include "Person.h"
+using ChrisMcCann::Person;
 
-TEST(StreamInsertionOperator)
+TEST(StreamExtractionFromFile)
 {
-   std::ostringstream output;
+   ifstream in("..\\Debug\\hw8-input.txt", ios::in);
+   if (!in)
+   {
+      cerr << "Error opening input file\n";
+      exit(1);
+   }
+
+   ostringstream outstream;
 
    Person person;
+   while (in >> person)
+   {
+      outstream << person << "\n";
+   }
+
+   cout << outstream.str() << "\n";
 }
 
 int main() {

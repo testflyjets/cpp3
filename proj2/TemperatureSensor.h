@@ -17,44 +17,20 @@ namespace Project2
 {
    //=========================================================================
    // SUMMARY
+   //       A temperature sensor measures the temperature of an object such as 
+   //       an engine, a liquid, or the surrounding air.
+   //
+   //       It converts a signal voltage into a temperature.
    //
    // RESOURCES
-   //      
+   //       The temperature sensor owns no resources.
    //=========================================================================
    class TemperatureSensor : public Sensor
    {
    public:
-      //---------------------------------------------------------------------
-      // SUMMARY
-      //      Constructor.  Initializes the coin's denomination to the given
-      //      type.
-      //
-      // RESOURCES
-      //      None
-      //
-      // PARAMETERS
-      //      denomination
-      //          The coin's denomination.
-      //
-      // RETURNS
-      //      Nothing
-      //---------------------------------------------------------------------
       TemperatureSensor(std::string name, Signal &source);
 
    protected:
-      //---------------------------------------------------------------------
-      // SUMMARY
-      //      Returns the value of the coin in cents.
-      //
-      // RESOURCES
-      //      None
-      //
-      // PARAMETERS
-      //      None
-      //
-      // RETURNS
-      //      The value of the coin in cents.
-      //---------------------------------------------------------------------
       virtual string getUnits() const;
    };
 }

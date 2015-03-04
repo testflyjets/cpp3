@@ -16,9 +16,10 @@ namespace Project2
 {
    //=========================================================================
    // SUMMARY
+   //    A representation of a specific instance in time.
    //
    // RESOURCES
-   //      
+   //    None.
    //=========================================================================
    class Time
    {
@@ -40,19 +41,34 @@ namespace Project2
       friend ostream &operator<<(ostream &out, const Time &value);
 
    public:
+      //---------------------------------------------------------------------
+      // SUMMARY
+      //      An overload of the addition assignment operator.
+      //
+      // PARAMETERS
+      //      rhs
+      //          An r-value Time instance to be added to this instance.
+      //
+      // RETURNS
+      //      The Time object.
+      //---------------------------------------------------------------------
       Time &operator+=(const Time &rhs);
 
       //---------------------------------------------------------------------
       // SUMMARY
-      //      Constructor.  Initializes the coin's denomination to the given
-      //      type.
+      //      Constructor.  Initializes the time's hours, minutes, and
+      //      seconds.
       //
       // RESOURCES
       //      None
       //
       // PARAMETERS
-      //      denomination
-      //          The coin's denomination.
+      //      hours
+      //          The time's hours.
+      //      minutes
+      //          The time's minutes.
+      //      seconds
+      //          The time's seconds.
       //
       // RETURNS
       //      Nothing
@@ -61,7 +77,8 @@ namespace Project2
 
       //---------------------------------------------------------------------
       // SUMMARY
-      //      Returns the type of this coin.
+      //      Returns the time as a number of seconds after some arbitrary
+      //      zero time.
       //
       // RESOURCES
       //      None
@@ -70,7 +87,7 @@ namespace Project2
       //      None
       //
       // RETURNS
-      //      The type of this coin.
+      //      The number of seconds represented by this time instance.
       //---------------------------------------------------------------------
       int getTotalTimeAsSeconds();
 

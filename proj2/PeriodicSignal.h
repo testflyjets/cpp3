@@ -16,49 +16,51 @@ namespace Project2
 {
    //=========================================================================
    // SUMMARY
+   //    PeriodicSignal is an abstract implementation of Signal whose signal
+   //    changes with time.  Concrete classes that inherit from PeriodicSignal
+   //    will provide an implementation that generates a varying signal.
    //
    // RESOURCES
-   //      
+   //      None.
    //=========================================================================
    class PeriodicSignal : public Signal
    {
    public:
       //---------------------------------------------------------------------
       // SUMMARY
-      //      Constructor.  Initializes the coin's denomination to the given
-      //      type.
+      //      Constructor.  Initializes the periodic signal's voltage offset,
+      //      time offset, min and max voltages, and period.
       //
       // RESOURCES
       //      None
       //
       // PARAMETERS
-      //      denomination
-      //          The coin's denomination.
+      //      voltageOffset
+      //          The signal's voltage offset.
+      //      timeOffset
+      //          The signal's time offset.
+      //      minVoltage
+      //          The voltage when the signal is at minimum amplitude.
+      //      maxVoltage
+      //          The voltage when the signal is at maximum amplitude.
       //
       // RETURNS
       //      Nothing
       //---------------------------------------------------------------------
-      PeriodicSignal(double voltageOffset, Time timeOffset, 
-         double minVoltage, double maxVoltage, Time period);
+      PeriodicSignal(double voltageOffset,
+         Time timeOffset,
+         double minVoltage,
+         double maxVoltage,
+         Time period);
 
-      //---------------------------------------------------------------------
-      // SUMMARY
-      //      Returns the value of the coin in cents.
-      //
-      // RESOURCES
-      //      None
-      //
-      // PARAMETERS
-      //      None
-      //
-      // RETURNS
-      //      The value of the coin in cents.
-      //---------------------------------------------------------------------
       virtual double getVoltageAtTime(Time t) const = 0;
 
    protected:
+      // accessor for minVoltage
       double getMinVoltage() const;
+      // accessor for maxVoltage
       double getMaxVoltage() const;
+      // accessor for period
       Time getPeriod() const;
 
    private:

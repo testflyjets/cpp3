@@ -1,6 +1,6 @@
 /*
  * Airplane Monitoring System Project
- * 
+ *
  * Chris McCann - C/C++ 3 - CSE-40477
  *
  * Signal.h
@@ -13,82 +13,88 @@
 
 namespace Project2
 {
-//=========================================================================
-    // SUMMARY
-    //
-    // RESOURCES
-    //      
-    //=========================================================================
-    class Signal
-    {
-    public:
-        //---------------------------------------------------------------------
-        // SUMMARY
-        //      Constructor.  Initializes the coin's denomination to the given
-        //      type.
-        //
-        // RESOURCES
-        //      None
-        //
-        // PARAMETERS
-        //      denomination
-        //          The coin's denomination.
-        //
-        // RETURNS
-        //      Nothing
-        //---------------------------------------------------------------------
-        Signal(double valueOffset, Time timeOffset);
+   //=========================================================================
+   // SUMMARY
+   //    Signal is an abstract class that represents a voltage that varies 
+   //    with time. Each concrete Signal is of a specific type.  The Signal’s 
+   //    type determines the equation that will be used to produce a Voltage 
+   //    at a given time.
+   //
+   // RESOURCES
+   //      None.
+   //=========================================================================
+   class Signal
+   {
+   public:
+      //---------------------------------------------------------------------
+      // SUMMARY
+      //      Constructor.  Initializes the signal's value and time offsets.
+      //
+      // RESOURCES
+      //      None
+      //
+      // PARAMETERS
+      //      valueOffset
+      //          The offset from zero of the signals value.
+      //      timeOffset
+      //          The offset from time zero when the signal was created.
+      //
+      // RETURNS
+      //      Nothing
+      //---------------------------------------------------------------------
+      Signal(double valueOffset, Time timeOffset);
 
-        //---------------------------------------------------------------------
-        // SUMMARY
-        //      Returns the type of this coin.
-        //
-        // RESOURCES
-        //      None
-        //
-        // PARAMETERS
-        //      None
-        //
-        // RETURNS
-        //      The type of this coin.
-        //---------------------------------------------------------------------
-        virtual double getVoltageAtTime(Time t) const = 0;
+      //---------------------------------------------------------------------
+      // SUMMARY
+      //      Returns the signal's voltage at the given time.
+      //
+      // RESOURCES
+      //      None
+      //
+      // PARAMETERS
+      //      t
+      //          The time at which the signal is generated.
+      //
+      // RETURNS
+      //      The voltage of the signal.
+      //---------------------------------------------------------------------
+      virtual double getVoltageAtTime(Time t) const = 0;
 
-    protected:
-        //---------------------------------------------------------------------
-        // SUMMARY
-        //      Returns the type of this coin.
-        //
-        // RESOURCES
-        //      None
-        //
-        // PARAMETERS
-        //      None
-        //
-        // RETURNS
-        //      The type of this coin.
-        //---------------------------------------------------------------------
-        Time getTimeOffset() const;
+   protected:
+      //---------------------------------------------------------------------
+      // SUMMARY
+      //      Returns the signal's time offset.
+      //
+      // RESOURCES
+      //      None
+      //
+      // PARAMETERS
+      //      None
+      //
+      // RETURNS
+      //      The time offset of this signal.
+      //---------------------------------------------------------------------
+      Time getTimeOffset() const;
 
-        //---------------------------------------------------------------------
-        // SUMMARY
-        //      Returns the value of the coin in cents.
-        //
-        // RESOURCES
-        //      None
-        //
-        // PARAMETERS
-        //      None
-        //
-        // RETURNS
-        //      The value of the coin in cents.
-        //---------------------------------------------------------------------
-        virtual double getVoltageOffset() const;
+      //---------------------------------------------------------------------
+      // SUMMARY
+      //      Returns the signal's voltage offset.
+      //
+      // RESOURCES
+      //      None
+      //
+      // PARAMETERS
+      //      None
+      //
+      // RETURNS
+      //      The value of voltage offset.
+      //---------------------------------------------------------------------
+      virtual double getVoltageOffset() const;
 
-    private:
-       double voltageOffset;
-       Time timeOffset;
-    };
+   private:
+      double voltageOffset;
+      Time timeOffset;
+   };
 }
 
 #endif

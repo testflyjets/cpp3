@@ -16,30 +16,22 @@ namespace Project2
 {
    //=========================================================================
    // SUMMARY
+   //    SawtoothSignal is a concrete implementation of PeriodicSignal that 
+   //    varies between a minimum and maximum value, climbing from the minimum 
+   //    to the maximum value at a constant rate then falling immediately back 
+   //    to the minimum value upon reaching the maximum value.
    //
    // RESOURCES
-   //      
+   //      None.
    //=========================================================================
    class SawtoothSignal : public PeriodicSignal
    {
    public:
-      //---------------------------------------------------------------------
-      // SUMMARY
-      //      Constructor.  Initializes the coin's denomination to the given
-      //      type.
-      //
-      // RESOURCES
-      //      None
-      //
-      // PARAMETERS
-      //      denomination
-      //          The coin's denomination.
-      //
-      // RETURNS
-      //      Nothing
-      //---------------------------------------------------------------------
-      SawtoothSignal(double voltageOffset, Time timeOffset, 
-         double minVoltage, double maxVoltage, Time period);
+      SawtoothSignal(double voltageOffset, 
+         Time timeOffset, 
+         double minVoltage, 
+         double maxVoltage, 
+         Time period);
       
       virtual double getVoltageAtTime(Time t) const;
    };

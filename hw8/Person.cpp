@@ -10,8 +10,11 @@
  *
  */
 
+#include <iomanip>
+using std::fixed;
+using std::setprecision;
+
 #include <iostream>
-using std::cout;
 using std::istream;
 using std::ostream;
 
@@ -20,7 +23,8 @@ using std::ostream;
 ostream 
 &ChrisMcCann::operator<<(ostream &out, const Person &value)
 {
-   out << value.firstName   << " " 
+   out << fixed << setprecision(2)
+      << value.firstName    << " " 
       << value.lastName     << " " 
       << value.ageYears     << " "
       << value.heightInches << " "
@@ -32,6 +36,11 @@ ostream
 istream 
 &ChrisMcCann::operator>>(istream &in, Person &value)
 {
+   in >> value.firstName
+      >> value.lastName
+      >> value.ageYears
+      >> value.heightInches
+      >> value.weightPounds;
 
    return in;
 }
